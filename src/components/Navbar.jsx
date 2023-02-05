@@ -1,6 +1,15 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { getAuth } from "firebase/auth";
 
 function Navbar() {
+  const navigate = useNavigate();
+  const auth = getAuth();
+
+  const onLogout = () => {
+    auth.signOut();
+    navigate("/");
+  };
+
   return (
     <div className="navbar bg-base-200 shadow-md">
       <div className="flex-1">
@@ -54,12 +63,17 @@ function Navbar() {
             tabIndex={0}
             className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
-            <li>
-              <Link to="/profile">Profile</Link>
-            </li>
-            <li>
-              <Link to="/sign-in">Logout</Link>
-            </li>
+            {auth.currentUser ? (
+              <li>
+                <Link to="/profile">Profile</Link>
+                <Link to="/wishlist">Wishlist</Link>
+                <button onClick={onLogout}>Logout</button>
+              </li>
+            ) : (
+              <li>
+                <Link to="/sign-in">Login</Link>
+              </li>
+            )}
           </ul>
         </div>
       </div>
