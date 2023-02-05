@@ -6,9 +6,11 @@ import SignUp from "./pages/SignUp";
 import ForgotPassword from "./pages/ForgotPassword";
 import Navbar from "./components/Navbar";
 import WelcomeHome from "./pages/Welcome";
+import PrivateRoute from "./components/PrivateRoute";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Link } from "react-router-dom";
+
 function App() {
   return (
     <>
@@ -20,7 +22,9 @@ function App() {
           <Route path="/shop" element={<Shop />} />
           <Route path="/" element={<WelcomeHome />} />
           <Route path="/cart" element={<Cart />} />
-          <Route path="/profile" element={<Profile />} />
+          <Route path="/profile" element={<PrivateRoute />}>
+            <Route path="/profile" element={<Profile />} />
+          </Route>
           <Route path="/sign-in" element={<SignIn />} />
           <Route path="/sign-up" element={<SignUp />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import OAuth from "../components/OAuth";
 
 function SignIn() {
   const [showPassword, setShowPassword] = useState(false);
@@ -71,14 +72,14 @@ function SignIn() {
             </button>
           </div>
 
-          <Link to="forgot-password">Forgot Password</Link>
+          <Link to="/forgot-password">Forgot Password</Link>
 
           <div>
             <button>Sign In</button>
           </div>
         </form>
 
-        {/* Google Oauth here */}
+        <OAuth />
 
         <Link to="/sign-up">Sign Up Instead</Link>
       </div>
