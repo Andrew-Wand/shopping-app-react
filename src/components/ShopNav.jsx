@@ -70,13 +70,13 @@ function ShopNav({ category, setCategory, gender, setGender }) {
     <nav>
       <div className="tabs">
         <button
-          className="men tab tab-lifted tab-active"
+          className="men tab tab-bordered tab-lg tab-active"
           onClick={() => handleSelectGender("men")}
         >
           Men
         </button>
         <button
-          className="women tab tab-lifted"
+          className="women tab tab-bordered  tab-lg"
           onClick={() => handleSelectGender("women")}
         >
           Women
@@ -89,14 +89,14 @@ function ShopNav({ category, setCategory, gender, setGender }) {
           onClick={() => handleSelectCategory("tshirt")}
           ref={categoryRef1}
         >
-          {gender === "men" ? "T-Shirts" : "T-Shirts and Tops"}
+          {gender === "men" ? "T-Shirts" : "T-Shirts & Tops"}
         </a>
         <a
           className="tab category-btn"
           onClick={(e) => handleSelectCategory("shirt")}
           ref={categoryRef2}
         >
-          {gender === "men" ? "Dress shirts" : "Dresses"}
+          {gender === "men" ? "Dress Shirts" : "Dresses"}
         </a>
         <a
           className="tab category-btn"

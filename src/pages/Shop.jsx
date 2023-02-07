@@ -7,29 +7,31 @@ import {
   orderBy,
   limit,
   startAfter,
+  setDoc,
+  doc,
+  addDoc,
 } from "firebase/firestore";
+import { getAuth } from "firebase/auth";
 import { db } from "../firebase.config";
 import ShopNav from "../components/ShopNav";
 import ShopItem from "../components/ShopItem";
 import Loading from "../components/Loading";
 
-function Shop() {
+function Shop({ handleAddToCart }) {
   const [listings, setListings] = useState(null);
   const [loading, setLoading] = useState(true);
 
   const [category, setCategory] = useState("tshirt");
   const [gender, setGender] = useState("men");
 
+  const auth = getAuth();
+
   useEffect(() => {
     const fetchListings = async () => {
       try {
         const listingsRef = collection(db, "listings");
 
-        const q = query(
-          listingsRef,
-
-          limit(10)
-        );
+        const q = query(listingsRef, limit(20));
 
         const querySnap = await getDocs(q);
 
@@ -51,6 +53,7 @@ function Shop() {
 
     fetchListings();
   }, []);
+
   return (
     <div>
       <header>
@@ -72,6 +75,20 @@ function Shop() {
                 if (e.data.gender !== gender) {
                   return;
                 } else if (e.data.category === category) {
+                  // Adding items to cart
+
+                  const handleAddToCart = async () => {
+                    try {
+                      const cartClick = e;
+
+                      await setDoc(
+                        doc(db, "cartItems", cartClick.id),
+                        cartClick.data
+                      );
+                    } catch (error) {
+                      console.log(error);
+                    }
+                  };
                   return (
                     <ShopItem
                       listing={listing.data}
@@ -80,6 +97,8 @@ function Shop() {
                       category={category}
                       setCategory={setCategory}
                       e={e.data}
+                      targetId={e.id}
+                      handleAddToCart={handleAddToCart}
                     />
                   );
                 }
