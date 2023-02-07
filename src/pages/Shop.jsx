@@ -10,9 +10,12 @@ import {
 } from "firebase/firestore";
 import { db } from "../firebase.config";
 import ShopNav from "../components/ShopNav";
+import ShopItem from "../components/ShopItem";
+import Loading from "../components/Loading";
 
 function Shop() {
   const [listings, setListings] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchListings = async () => {
@@ -30,8 +33,14 @@ function Shop() {
         let listings = [];
 
         querySnap.forEach((doc) => {
-          console.log(doc.data());
+          return listings.push({
+            id: doc.id,
+            data: doc.data(),
+          });
         });
+
+        setListings(listings);
+        setLoading(false);
       } catch (error) {
         console.log("cannot fetch listings");
       }
@@ -41,13 +50,29 @@ function Shop() {
   }, []);
   return (
     <div>
-      <div>
+      <header>
         <ShopNav />
-      </div>
+      </header>
 
-      <main>
-        <div>Shop</div>
-      </main>
+      {loading ? (
+        <Loading />
+      ) : listings && listings.length > 0 ? (
+        <>
+          <main>
+            <ul>
+              {listings.map((listing) => (
+                <ShopItem
+                  listing={listing.data}
+                  id={listing.id}
+                  key={listing.id}
+                />
+              ))}
+            </ul>
+          </main>
+        </>
+      ) : (
+        <p>Nothing here</p>
+      )}
     </div>
   );
 }

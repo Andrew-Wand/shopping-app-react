@@ -1,13 +1,16 @@
 import { Link, useNavigate } from "react-router-dom";
 import { getAuth } from "firebase/auth";
+import { useState } from "react";
 
 function Navbar() {
   const navigate = useNavigate();
   const auth = getAuth();
 
   const onLogout = () => {
-    auth.signOut();
-    navigate("/");
+    if (auth.currentUser) {
+      auth.signOut();
+      navigate("/sign-in");
+    }
   };
 
   return (
@@ -67,7 +70,9 @@ function Navbar() {
               <li>
                 <Link to="/profile">Profile</Link>
                 <Link to="/wishlist">Wishlist</Link>
-                <button onClick={onLogout}>Logout</button>
+                <a to="/sign-in" onClick={onLogout}>
+                  Logout
+                </a>
               </li>
             ) : (
               <li>
