@@ -32,12 +32,6 @@ function ShopNav({ category, setCategory, gender, setGender }) {
   const categoryRef3 = useRef(null);
   const categoryRef4 = useRef(null);
 
-  useEffect(() => {
-    // document.querySelectorAll(".category-btn").forEach((e) => {
-    //   e.classList.remove("tab-active");
-    // });
-  }, [category]);
-
   const handleSelectCategory = (selection) => {
     if (selection === "tshirt") {
       setCategory("tshirt");

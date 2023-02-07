@@ -69,7 +69,9 @@ function Shop() {
           <main>
             <ul>
               {listings.map((e, listing) => {
-                if (e.data.category === category) {
+                if (e.data.gender !== gender) {
+                  return;
+                } else if (e.data.category === category) {
                   return (
                     <ShopItem
                       listing={listing.data}
@@ -80,10 +82,6 @@ function Shop() {
                       e={e.data}
                     />
                   );
-                }
-
-                if (e.data.gender !== gender) {
-                  return;
                 }
               })}
             </ul>
