@@ -17,6 +17,9 @@ function Shop() {
   const [listings, setListings] = useState(null);
   const [loading, setLoading] = useState(true);
 
+  const [category, setCategory] = useState("tshirt");
+  const [gender, setGender] = useState("men");
+
   useEffect(() => {
     const fetchListings = async () => {
       try {
@@ -24,7 +27,7 @@ function Shop() {
 
         const q = query(
           listingsRef,
-          where("category", "==", "tshirt"),
+
           limit(10)
         );
 
@@ -51,7 +54,12 @@ function Shop() {
   return (
     <div>
       <header>
-        <ShopNav />
+        <ShopNav
+          category={category}
+          setCategory={setCategory}
+          gender={gender}
+          setGender={setGender}
+        />
       </header>
 
       {loading ? (
@@ -60,13 +68,24 @@ function Shop() {
         <>
           <main>
             <ul>
-              {listings.map((listing) => (
-                <ShopItem
-                  listing={listing.data}
-                  id={listing.id}
-                  key={listing.id}
-                />
-              ))}
+              {listings.map((e, listing) => {
+                if (e.data.category === category) {
+                  return (
+                    <ShopItem
+                      listing={listing.data}
+                      id={listing.id}
+                      key={listing.id}
+                      category={category}
+                      setCategory={setCategory}
+                      e={e.data}
+                    />
+                  );
+                }
+
+                if (e.data.gender !== gender) {
+                  return;
+                }
+              })}
             </ul>
           </main>
         </>

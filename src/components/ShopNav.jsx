@@ -1,8 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 
-function ShopNav() {
+function ShopNav({ category, setCategory, gender, setGender }) {
   // Handle changing genders in the navbar
-  const [gender, setGender] = useState("men");
 
   useEffect(() => {
     if (gender === "men") {
@@ -27,7 +26,6 @@ function ShopNav() {
   };
 
   // Handle changing the category in the navbar
-  const [category, setCategory] = useState("tshirt");
 
   const categoryRef1 = useRef(null);
   const categoryRef2 = useRef(null);

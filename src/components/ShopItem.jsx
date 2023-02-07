@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 
-function ShopItem({ listing, id }) {
+function ShopItem({ listing, id, category, setCategory, e }) {
   return (
     <li>
       <a>
-        <img src={listing.image} alt="Clothing" />
+        <img src={e.image} alt="Clothing" />
       </a>
     </li>
   );
