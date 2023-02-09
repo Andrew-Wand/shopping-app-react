@@ -1,6 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { getAuth } from "firebase/auth";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { collection, query, getDocs, limit } from "firebase/firestore";
 
 function Navbar() {
   const navigate = useNavigate();
@@ -12,6 +13,34 @@ function Navbar() {
       navigate("/sign-in");
     }
   };
+
+  useEffect(() => {
+    const fetchCartItems = async () => {
+      try {
+        const cartItemsRef = collection(db, "cartItems");
+
+        const q = query(cartItemsRef);
+
+        const cartSnapshot = await getDocs(q);
+
+        let cartItems = [];
+
+        cartSnapshot.forEach((doc) => {
+          return cartItems.push({
+            id: doc.id,
+            data: doc.data(),
+          });
+        });
+
+        setCartItems(cartItems);
+        console.log(cartItems);
+        setLoading(false);
+      } catch (error) {
+        console.log("Cannot get cart items");
+      }
+    };
+    fetchCartItems();
+  }, []);
 
   return (
     <div className="navbar bg-base-200 shadow-md">

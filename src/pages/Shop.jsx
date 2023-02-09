@@ -76,7 +76,6 @@ function Shop({ handleAddToCart }) {
                   return;
                 } else if (e.data.category === category) {
                   // Adding items to cart
-
                   const handleAddToCart = async () => {
                     try {
                       const cartClick = e;
