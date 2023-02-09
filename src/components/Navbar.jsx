@@ -44,6 +44,10 @@ function Navbar() {
     fetchCartItems();
   }, [cartItems]);
 
+  // Calculate total price of items in cart
+  const data = cartItems;
+  const calcPrice = data?.reduce((a, v) => (a = a + v.data.price), 0);
+
   return (
     <div className="navbar bg-base-200 shadow-md">
       <div className="flex-1">
@@ -82,7 +86,7 @@ function Navbar() {
               <span className="font-bold text-lg">
                 {cartItems?.length} Items
               </span>
-              <span className="text-info">Subtotal: $999</span>
+              <span className="text-info">Subtotal: ${`${calcPrice}`}</span>
               <div className="card-actions">
                 <Link to="/cart" className="btn btn-primary btn-block">
                   View cart

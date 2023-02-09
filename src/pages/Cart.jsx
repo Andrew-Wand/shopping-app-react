@@ -1,5 +1,12 @@
 import { useState, useEffect } from "react";
-import { collection, query, getDocs, limit } from "firebase/firestore";
+import {
+  collection,
+  query,
+  getDocs,
+  limit,
+  deleteDoc,
+  doc,
+} from "firebase/firestore";
 import { db } from "../firebase.config";
 import Loading from "../components/Loading";
 
@@ -35,7 +42,15 @@ function Cart() {
     fetchCartItems();
   }, []);
 
-  const onDeleteFromCart = () => {};
+  const onDeleteFromCart = async (cartItemId) => {
+    if (window.confirm("Are you sure you want to delete?")) {
+      await deleteDoc(doc(db, "cartItems", cartItemId));
+
+      const updatedCart = cartItems.filter((item) => item.id !== cartItemId);
+      setCartItems(updatedCart);
+      console.log("Success delete!");
+    }
+  };
 
   // Calculate total price of items in cart
   const data = cartItems;
@@ -65,7 +80,12 @@ function Cart() {
 
                       <p>Price : ${item.data.price}</p>
 
-                      <p onClick={onDeleteFromCart}>delete</p>
+                      <button
+                        type="button"
+                        onClick={() => onDeleteFromCart(item.id)}
+                      >
+                        Delete
+                      </button>
                     </li>
                   </>
                 );
