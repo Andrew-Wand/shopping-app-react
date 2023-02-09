@@ -26,7 +26,7 @@ function Cart() {
         });
 
         setCartItems(cartItems);
-        console.log(cartItems);
+
         setLoading(false);
       } catch (error) {
         console.log("Cannot get cart items");
@@ -34,6 +34,12 @@ function Cart() {
     };
     fetchCartItems();
   }, []);
+
+  const onDeleteFromCart = () => {};
+
+  // Calculate total price of items in cart
+  const data = cartItems;
+  const calcPrice = data?.reduce((a, v) => (a = a + v.data.price), 0);
 
   return (
     <div>
@@ -47,16 +53,26 @@ function Cart() {
         <>
           <main>
             <ul>
-              {cartItems.map((item) => (
-                <li>
-                  <h1>{item.data.name}</h1>
+              {cartItems.map((item) => {
+                return (
+                  <>
+                    <li>
+                      <h1>{item.data.name}</h1>
 
-                  <figure>
-                    <img src={item.data.image} alt="Clothing" />
-                  </figure>
-                </li>
-              ))}
+                      <figure>
+                        <img src={item.data.image} alt="Clothing" />
+                      </figure>
+
+                      <p>Price : ${item.data.price}</p>
+
+                      <p onClick={onDeleteFromCart}>delete</p>
+                    </li>
+                  </>
+                );
+              })}
             </ul>
+
+            <p>Total: ${`${calcPrice}`} </p>
           </main>
         </>
       ) : (
