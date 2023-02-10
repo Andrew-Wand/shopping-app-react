@@ -1,3 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.swap-on,
+.swap {
+  opacity: 1 !important;
+}
+
+.swap-on {
+  transform: rotate(90deg) !important;
+}
