@@ -52,7 +52,7 @@ function Shop({ handleAddToCart }) {
     };
 
     fetchListings();
-  }, []);
+  }, [listings]);
 
   return (
     <div>

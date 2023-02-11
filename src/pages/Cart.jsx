@@ -9,6 +9,7 @@ import {
 } from "firebase/firestore";
 import { db } from "../firebase.config";
 import Loading from "../components/Loading";
+import CartItem from "../components/CartItem";
 
 function Cart() {
   const [cartItems, setCartItems] = useState(null);
@@ -40,21 +41,14 @@ function Cart() {
       }
     };
     fetchCartItems();
-  }, []);
-
-  const onDeleteFromCart = async (cartItemId) => {
-    if (window.confirm("Are you sure you want to delete?")) {
-      await deleteDoc(doc(db, "cartItems", cartItemId));
-
-      const updatedCart = cartItems.filter((item) => item.id !== cartItemId);
-      setCartItems(updatedCart);
-      console.log("Success delete!");
-    }
-  };
+  }, [cartItems]);
 
   // Calculate total price of items in cart
   const data = cartItems;
-  const calcPrice = data?.reduce((a, v) => (a = a + v.data.price), 0);
+  const calcPrice = data?.reduce(
+    (a, v) => (a = a + v.data.price * v.data.quantity),
+    0
+  );
 
   return (
     <div>
@@ -68,28 +62,9 @@ function Cart() {
         <>
           <main>
             <ul>
-              {cartItems.map((item) => {
-                return (
-                  <>
-                    <li>
-                      <h1>{item.data.name}</h1>
-
-                      <figure>
-                        <img src={item.data.image} alt="Clothing" />
-                      </figure>
-
-                      <p>Price : ${item.data.price}</p>
-
-                      <button
-                        type="button"
-                        onClick={() => onDeleteFromCart(item.id)}
-                      >
-                        Delete
-                      </button>
-                    </li>
-                  </>
-                );
-              })}
+              {cartItems.map((item) => (
+                <CartItem item={item.data} id={item.id} cartItems={cartItems} />
+              ))}
             </ul>
 
             <p>Total: ${`${calcPrice}`} </p>

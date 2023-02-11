@@ -22,31 +22,31 @@ function Navbar() {
   const [cartItems, setCartItems] = useState(null);
   const [drawerActive, setDrawerActive] = useState(false);
 
-  // useEffect(() => {
-  //   const fetchCartItems = async () => {
-  //     try {
-  //       const cartItemsRef = collection(db, "cartItems");
+  useEffect(() => {
+    const fetchCartItems = async () => {
+      try {
+        const cartItemsRef = collection(db, "cartItems");
 
-  //       const q = query(cartItemsRef);
+        const q = query(cartItemsRef);
 
-  //       const cartSnapshot = await getDocs(q);
+        const cartSnapshot = await getDocs(q);
 
-  //       let cartItems = [];
+        let cartItems = [];
 
-  //       cartSnapshot.forEach((doc) => {
-  //         return cartItems.push({
-  //           id: doc.id,
-  //           data: doc.data(),
-  //         });
-  //       });
+        cartSnapshot.forEach((doc) => {
+          return cartItems.push({
+            id: doc.id,
+            data: doc.data(),
+          });
+        });
 
-  //       setCartItems(cartItems);
-  //     } catch (error) {
-  //       console.log("Cannot get cart items");
-  //     }
-  //   };
-  //   fetchCartItems();
-  // }, []);
+        setCartItems(cartItems);
+      } catch (error) {
+        console.log("Cannot get cart items");
+      }
+    };
+    fetchCartItems();
+  }, [cartItems]);
 
   const openDrawer = () => {
     if (!drawerActive) {
@@ -158,7 +158,7 @@ function Navbar() {
         </div>
       </div>
       {drawerActive ? (
-        <div className="absolute bg-base-300 w-full h-screen transition-[width] ease duration-300">
+        <div className="absolute bg-base-300 w-full h-screen transition-[width] ease-in-out duration-300 z-20">
           <div>
             <ul>
               <li>derp</li>
