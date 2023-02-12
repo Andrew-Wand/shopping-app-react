@@ -17,12 +17,12 @@ import ShopNav from "../components/ShopNav";
 import ShopItem from "../components/ShopItem";
 import Loading from "../components/Loading";
 
-function Shop({ handleAddToCart }) {
+function Shop({ handleAddToCart, category, setCategory, gender, setGender }) {
   const [listings, setListings] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  const [category, setCategory] = useState("tshirt");
-  const [gender, setGender] = useState("men");
+  // const [category, setCategory] = useState("tshirt");
+  // const [gender, setGender] = useState("men");
 
   const auth = getAuth();
 
@@ -56,7 +56,7 @@ function Shop({ handleAddToCart }) {
 
   return (
     <div>
-      <header>
+      <header className="hidden xl:block">
         <ShopNav
           category={category}
           setCategory={setCategory}

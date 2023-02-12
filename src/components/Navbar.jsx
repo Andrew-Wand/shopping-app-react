@@ -6,8 +6,10 @@ import { db } from "../firebase.config";
 import Loading from "./Loading";
 import { BsFillBagFill } from "react-icons/bs";
 import { FiHeart, FiUser } from "react-icons/fi";
+import MobileNavMenu from "./MobileNavMenu";
+import ShopNav from "./ShopNav";
 
-function Navbar() {
+function Navbar({ gender, setGender, category, setCategory }) {
   const navigate = useNavigate();
   const auth = getAuth();
 
@@ -20,6 +22,9 @@ function Navbar() {
 
   const [cartItems, setCartItems] = useState(null);
   const [drawerActive, setDrawerActive] = useState(false);
+
+  // const [category, setCategory] = useState("tshirt");
+  // const [gender, setGender] = useState("men");
 
   useEffect(() => {
     const fetchCartItems = async () => {
@@ -49,7 +54,7 @@ function Navbar() {
 
   const openDrawer = () => {
     if (!drawerActive) {
-      setDrawerActive(true);
+      setDrawerActive(+true);
     } else {
       setDrawerActive(false);
     }
@@ -62,7 +67,7 @@ function Navbar() {
   return (
     <>
       <div className="navbar bg-base-200 shadow-md ">
-        <div className="flex-none  ">
+        <div className="flex-none xl:hidden">
           <button
             className="btn btn-square btn-ghost swap swap-rotate"
             onClick={openDrawer}
@@ -158,16 +163,23 @@ function Navbar() {
           </div>
         </div>
       </div>
+
+      {/* Hamburger menu for mobile */}
       {drawerActive ? (
-        <div className="absolute bg-base-300 w-full h-screen transition-[width] ease-in-out duration-300 z-20">
+        // <div className="absolute bg-base-300 w-full h-screen transition-[width] ease-in-out duration-700 z-20 ">
+        <div className="bg-base-300 h-screen translate-x-[0%] transition-[transform] ease-in-out duration-700 z-20 absolute w-full  ">
           <div>
-            <ul>
-              <li>derp</li>
-            </ul>
+            <MobileNavMenu
+              setGender={setGender}
+              gender={gender}
+              setCategory={setCategory}
+              category={category}
+              setDrawerActive={setDrawerActive}
+            />
           </div>
         </div>
       ) : (
-        <div className="w-0"></div>
+        <div className="-translate-x-[100%]"></div>
       )}
     </>
   );

@@ -11,16 +11,34 @@ import Wishlist from "./pages/Wishlist";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 function App() {
+  const [category, setCategory] = useState("tshirt");
+  const [gender, setGender] = useState("men");
   return (
     <>
       <Router>
-        <Navbar />
+        <Navbar
+          category={category}
+          setCategory={setCategory}
+          gender={gender}
+          setGender={setGender}
+        />
 
         {/* Content on page */}
         <Routes>
-          <Route path="/shop" element={<Shop />} />
+          <Route
+            path="/shop"
+            element={
+              <Shop
+                category={category}
+                setCategory={setCategory}
+                gender={gender}
+                setGender={setGender}
+              />
+            }
+          />
           <Route path="/" element={<WelcomeHome />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/profile" element={<PrivateRoute />}>
