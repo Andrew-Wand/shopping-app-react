@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import { collection, query, getDocs, limit } from "firebase/firestore";
 import { db } from "../firebase.config";
 import Loading from "./Loading";
-import { HiOutlineHeart } from "react-icons/hi";
 import { BsFillBagFill } from "react-icons/bs";
 import { FiHeart, FiUser } from "react-icons/fi";
 
@@ -129,7 +128,9 @@ function Navbar() {
 
           <div className="dropdown-end mr-1">
             <label tabIndex={0} className="btn btn-ghost btn-circle ">
-              <FiHeart className="text-3xl" />
+              <Link to="/wishlist">
+                <FiHeart className="text-3xl" />
+              </Link>
             </label>
           </div>
 

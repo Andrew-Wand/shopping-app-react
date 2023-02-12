@@ -52,7 +52,7 @@ function Shop({ handleAddToCart }) {
     };
 
     fetchListings();
-  }, [listings]);
+  }, [loading]);
 
   return (
     <div>
@@ -88,6 +88,21 @@ function Shop({ handleAddToCart }) {
                       console.log(error);
                     }
                   };
+                  // Add items to wishlist
+                  const handleAddToWishlist = async () => {
+                    try {
+                      const wishlistClick = e;
+
+                      if (auth.currentUser) {
+                        await setDoc(
+                          doc(db, "wishlist", wishlistClick.id),
+                          wishlistClick.data
+                        );
+                      }
+                    } catch (error) {
+                      console.log("Could not add to wishlist");
+                    }
+                  };
                   return (
                     <ShopItem
                       listing={listing.data}
@@ -98,6 +113,7 @@ function Shop({ handleAddToCart }) {
                       e={e.data}
                       targetId={e.id}
                       handleAddToCart={handleAddToCart}
+                      handleAddToWishlist={handleAddToWishlist}
                     />
                   );
                 }

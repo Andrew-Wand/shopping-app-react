@@ -8,6 +8,7 @@ function ShopItem({
   e,
   targetId,
   handleAddToCart,
+  handleAddToWishlist,
 }) {
   return (
     <li className="m-10 grid-col-1 card">
@@ -18,6 +19,8 @@ function ShopItem({
       <button className="btn btn-secondary" onClick={handleAddToCart}>
         Add To Cart
       </button>
+
+      <button onClick={handleAddToWishlist}>Add To Wishlist</button>
     </li>
   );
 }

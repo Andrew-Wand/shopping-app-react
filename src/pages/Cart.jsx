@@ -41,7 +41,7 @@ function Cart() {
       }
     };
     fetchCartItems();
-  }, [cartItems]);
+  }, [loading]);
 
   // Calculate total price of items in cart
   const data = cartItems;

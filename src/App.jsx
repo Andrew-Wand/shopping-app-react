@@ -26,7 +26,10 @@ function App() {
           <Route path="/profile" element={<PrivateRoute />}>
             <Route path="/profile" element={<Profile />} />
           </Route>
-          <Route path="/wishlist" element={<Wishlist />} />
+          <Route element={<PrivateRoute />}>
+            <Route path="/wishlist" element={<Wishlist />} />
+          </Route>
+
           <Route path="/sign-in" element={<SignIn />} />
           <Route path="/sign-up" element={<SignUp />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
