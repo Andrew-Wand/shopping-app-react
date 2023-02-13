@@ -50,7 +50,7 @@ function Navbar({ gender, setGender, category, setCategory }) {
       }
     };
     fetchCartItems();
-  }, [cartItems]);
+  }, []);
 
   const openDrawer = () => {
     if (!drawerActive) {
@@ -62,7 +62,24 @@ function Navbar({ gender, setGender, category, setCategory }) {
 
   // Calculate total price of items in cart
   const data = cartItems;
-  const calcTotalPrice = data?.reduce((a, v) => (a = a + v.data.price), 0);
+  const calcTotalPrice = data?.reduce(
+    (a, v) => (a = a + v.data.price * v.data.quantity),
+    0
+  );
+
+  // console.log(cartItems?.map((item) => item.data.quantity));
+
+  const cartQuantities = cartItems?.map((item) => item.data.quantity);
+
+  console.log(
+    cartQuantities?.reduce(
+      (accumulator, currentValue) => accumulator + currentValue
+    )
+  );
+
+  const cartTotal = cartQuantities?.reduce(
+    (accumulator, currentValue) => accumulator + currentValue
+  );
 
   return (
     <>
@@ -107,7 +124,7 @@ function Navbar({ gender, setGender, category, setCategory }) {
               <div className="indicator">
                 <BsFillBagFill className="text-3xl" />
                 <span className="badge badge-sm indicator-item">
-                  {cartItems?.length}
+                  {cartTotal}
                 </span>
               </div>
             </label>
@@ -116,9 +133,7 @@ function Navbar({ gender, setGender, category, setCategory }) {
               className="mt-3 card card-compact dropdown-content w-52 bg-base-100 shadow"
             >
               <div className="card-body">
-                <span className="font-bold text-lg">
-                  {cartItems?.length} Items
-                </span>
+                <span className="font-bold text-lg">{cartTotal} Items</span>
                 <span className="text-info">
                   Subtotal: ${`${calcTotalPrice}`}
                 </span>
@@ -179,7 +194,7 @@ function Navbar({ gender, setGender, category, setCategory }) {
           </div>
         </div>
       ) : (
-        <div className="-translate-x-[100%]"></div>
+        <div className="-translate-x-[100%] "></div>
       )}
     </>
   );
