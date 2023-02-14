@@ -40,9 +40,9 @@ function ShopItem({
         <img src={e.image} alt={`${e.name}`} className="w-full" />
       </Link>
 
-      <button className="btn btn-secondary" onClick={handleAddToCart}>
+      {/* <button className="btn btn-secondary" onClick={handleAddToCart}>
         Add To Cart
-      </button>
+      </button> */}
 
       <button onClick={handleAddToWishlist}>
         {!inWishlist ? <FaRegHeart /> : <FaHeart />}

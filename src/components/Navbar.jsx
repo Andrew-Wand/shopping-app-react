@@ -70,7 +70,8 @@ function Navbar({ gender, setGender, category, setCategory }) {
   // Get cart quantity
   const cartQuantities = cartItems?.map((item) => item.data.quantity);
   const cartTotal = cartQuantities?.reduce(
-    (accumulator, currentValue) => accumulator + currentValue
+    (accumulator, currentValue) => accumulator + currentValue,
+    0
   );
 
   return (
