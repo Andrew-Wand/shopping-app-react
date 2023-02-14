@@ -93,10 +93,15 @@ function Shop({ handleAddToCart, category, setCategory, gender, setGender }) {
                     try {
                       const wishlistClick = e;
 
+                      const dataCopy = {
+                        ...wishlistClick.data,
+                        userRef: auth.currentUser.uid,
+                      };
+
                       if (auth.currentUser) {
                         await setDoc(
                           doc(db, "wishlist", wishlistClick.id),
-                          wishlistClick.data
+                          dataCopy
                         );
                       }
                     } catch (error) {

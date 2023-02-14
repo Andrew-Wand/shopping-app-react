@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
-import { doc, updateDoc } from "firebase/firestore";
+import { doc, updateDoc, deleteDoc } from "firebase/firestore";
 import { db } from "../firebase.config";
 
-function CartItem({ item, id, cartItems }) {
+function CartItem({ item, id, cartItems, setCartItems }) {
   const [quantity, setQuantity] = useState(
     item.quantity === 0 ? 1 : item.quantity
   );
@@ -19,14 +19,14 @@ function CartItem({ item, id, cartItems }) {
   };
 
   const addQuantity = async () => {
-    setQuantity(quantity + 1);
+    setQuantity((previousQuantity) => previousQuantity + 1);
     await updateDoc(doc(db, "cartItems", id), {
       quantity: quantity + 1,
     });
   };
 
   const minusQuantity = async () => {
-    setQuantity(quantity - 1);
+    setQuantity((previousQuantity) => previousQuantity - 1);
     await updateDoc(doc(db, "cartItems", id), {
       quantity: quantity - 1,
     });
@@ -60,7 +60,7 @@ function CartItem({ item, id, cartItems }) {
           </div>
         </div>
 
-        <button type="button" onClick={() => onDeleteFromCart(item.id)}>
+        <button type="button" onClick={() => onDeleteFromCart(id)}>
           Delete
         </button>
       </li>

@@ -8,6 +8,7 @@ import Navbar from "./components/Navbar";
 import WelcomeHome from "./pages/Welcome";
 import PrivateRoute from "./components/PrivateRoute";
 import Wishlist from "./pages/Wishlist";
+import SingleItem from "./pages/SingleItem";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Link } from "react-router-dom";
@@ -47,6 +48,11 @@ function App() {
           <Route element={<PrivateRoute />}>
             <Route path="/wishlist" element={<Wishlist />} />
           </Route>
+
+          <Route
+            path="/shop/:categoryName/:listingId"
+            element={<SingleItem />}
+          />
 
           <Route path="/sign-in" element={<SignIn />} />
           <Route path="/sign-up" element={<SignUp />} />

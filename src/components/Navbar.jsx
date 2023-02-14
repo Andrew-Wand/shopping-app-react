@@ -67,16 +67,8 @@ function Navbar({ gender, setGender, category, setCategory }) {
     0
   );
 
-  // console.log(cartItems?.map((item) => item.data.quantity));
-
+  // Get cart quantity
   const cartQuantities = cartItems?.map((item) => item.data.quantity);
-
-  console.log(
-    cartQuantities?.reduce(
-      (accumulator, currentValue) => accumulator + currentValue
-    )
-  );
-
   const cartTotal = cartQuantities?.reduce(
     (accumulator, currentValue) => accumulator + currentValue
   );

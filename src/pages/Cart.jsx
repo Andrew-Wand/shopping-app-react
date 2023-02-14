@@ -63,7 +63,12 @@ function Cart() {
           <main>
             <ul>
               {cartItems.map((item) => (
-                <CartItem item={item.data} id={item.id} cartItems={cartItems} />
+                <CartItem
+                  item={item.data}
+                  id={item.id}
+                  cartItems={cartItems}
+                  setCartItems={setCartItems}
+                />
               ))}
             </ul>
 

@@ -55,7 +55,11 @@ function Wishlist() {
         <main>
           <ul>
             {wishlist.map((wishItem) => (
-              <WishlistItem wishItem={wishItem.data} wishlist={wishlist} />
+              <WishlistItem
+                wishItem={wishItem}
+                wishlist={wishlist}
+                setWishlist={setWishlist}
+              />
             ))}
           </ul>
         </main>
