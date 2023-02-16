@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { getDoc, doc, setDoc } from "firebase/firestore";
+import { getDoc, doc, setDoc, updateDoc } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 import { db } from "../firebase.config";
 import Loading from "../components/Loading";
@@ -8,6 +8,7 @@ import Loading from "../components/Loading";
 function SingleItem() {
   const [listing, setListing] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [size, setSize] = useState("");
 
   const navigate = useNavigate();
   const params = useParams();
@@ -32,14 +33,23 @@ function SingleItem() {
       const itemId = params.listingId;
       const cartClick = listing;
 
+      const docRef = doc(db, "cartItems", itemId);
+      const docSnap = await getDoc(docRef);
+
       const dataCopy = {
         ...cartClick,
         quantity: 1,
+        size: size,
       };
+
       await setDoc(doc(db, "cartItems", itemId), dataCopy);
     } catch (error) {
       console.log(error);
     }
+  };
+
+  const onSizeChange = (e) => {
+    setSize(e.target.value);
   };
 
   if (loading) {
@@ -60,6 +70,12 @@ function SingleItem() {
 
           <button onClick={handleAddToCart}>Add To Cart</button>
         </div>
+        <select name="size" id="size" onChange={onSizeChange}>
+          <option value="Small">Small</option>
+          <option value="Medium">Medium</option>
+          <option value="Large">Large</option>
+          <option value="X-Large">X-Large</option>
+        </select>
       </main>
     </div>
   );

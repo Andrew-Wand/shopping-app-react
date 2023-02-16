@@ -23,9 +23,6 @@ function Navbar({ gender, setGender, category, setCategory }) {
   const [cartItems, setCartItems] = useState(null);
   const [drawerActive, setDrawerActive] = useState(false);
 
-  // const [category, setCategory] = useState("tshirt");
-  // const [gender, setGender] = useState("men");
-
   useEffect(() => {
     const fetchCartItems = async () => {
       try {
