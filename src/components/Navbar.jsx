@@ -103,9 +103,9 @@ function Navbar({ gender, setGender, category, setCategory }) {
             )}
           </button>
         </div>
-        <div className="flex-1 ">
-          <Link to="/" className="btn btn-ghost normal-case text-xl">
-            Clothing Store
+        <div className="flex-1">
+          <Link to="/" className="btn btn-ghost normal-case text-2xl underline">
+            The Top Shop
           </Link>
         </div>
         <div className="flex-none">
