@@ -42,7 +42,7 @@ function Welcome() {
           <img
             src={WelcomePicture}
             alt="Store Picture"
-            className="h-[30rem] brightness-[60%] welcome-img"
+            className="h-[30rem] brightness-[64.5%] welcome-img lg:w-full lg:h-[48rem]"
           />
         </figure>
         <div className="absolute top-48 left-10 ">
