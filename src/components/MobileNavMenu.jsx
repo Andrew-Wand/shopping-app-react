@@ -97,12 +97,12 @@ function MobileNavMenu({
               </Link>
             </li>
             <li>
-              <Link to="/shop" onClick={() => handleSelectCategory("sweater")}>
+              <Link to="/shop" onClick={() => handleCategory("sweater")}>
                 Sweaters
               </Link>
             </li>
             <li>
-              <Link to="/shop" onClick={() => handleSelectCategory("jacket")}>
+              <Link to="/shop" onClick={() => handleCategory("jacket")}>
                 Jackets
               </Link>
             </li>

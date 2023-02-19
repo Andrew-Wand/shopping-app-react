@@ -73,7 +73,7 @@ function Navbar({ gender, setGender, category, setCategory }) {
 
   return (
     <>
-      <div className="navbar bg-base-200 shadow-md ">
+      <div className="navbar bg-base-200 shadow-md z-20 relative">
         <div className="flex-none xl:hidden">
           <button
             className="btn btn-square btn-ghost swap swap-rotate"

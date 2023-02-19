@@ -31,7 +31,7 @@ function Shop({ handleAddToCart, category, setCategory, gender, setGender }) {
       try {
         const listingsRef = collection(db, "listings");
 
-        const q = query(listingsRef, limit(20));
+        const q = query(listingsRef);
 
         const querySnap = await getDocs(q);
 
