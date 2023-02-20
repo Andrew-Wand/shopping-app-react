@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { collection, getDocs, query, limit, where } from "firebase/firestore";
 import WelcomePicture from "../assets/other/welcome-pic.jpg";
@@ -11,8 +11,21 @@ import InfoPic2 from "../assets/other/info-pic-2.jpg";
 import InfoPic3 from "../assets/other/info-pic-3.jpg";
 import { IoShirtSharp } from "react-icons/io5";
 
-function Welcome() {
+function Welcome({ gender, setGender, setCategory, category }) {
+  const navigate = useNavigate();
   const [featured, setFeatured] = useState(null);
+
+  const handleSelectGender = (selection) => {
+    if (selection === "men") {
+      setGender("men");
+      navigate("/shop");
+    }
+
+    if (selection === "women") {
+      setGender("women");
+      navigate("/shop");
+    }
+  };
 
   useEffect(() => {
     const fetchFeatured = async () => {
@@ -51,16 +64,29 @@ function Welcome() {
             className="h-[30rem] brightness-[64.5%] welcome-img lg:w-full lg:h-[48rem]"
           />
         </figure>
-        <div className="absolute top-48 left-10 ">
-          <p className="text-[30px] text-base-100 text-center uppercase font-extrabold welcome-text whitespace-nowrap">
-            All styles, all tops
-          </p>
-          <Link
+        <p className="text-[30px] text-base-100 text-center uppercase font-extrabold welcome-text whitespace-nowrap absolute top-32 left-10">
+          All styles, all tops
+        </p>
+        <div className="absolute top-48 left-12 ">
+          {/* <Link
             to="/shop"
             className="btn btn-lg bg-base-100 text-[#000] rounded-lg ml-28 mt-10"
           >
             Shop
-          </Link>
+          </Link> */}
+
+          <button
+            className="btn btn-lg btn-secondary mb-5 w-[20rem]"
+            onClick={() => handleSelectGender("men")}
+          >
+            Shop Men
+          </button>
+          <button
+            className="btn btn-lg btn-secondary w-[20rem]"
+            onClick={() => handleSelectGender("women")}
+          >
+            Shop Women
+          </button>
         </div>
       </header>
 
@@ -145,7 +171,7 @@ function Welcome() {
           </div>
         </div>
         <div className="mt-16 bg-base-300">
-          <div>
+          <div className="h-[35rem]">
             <div className="avatar mt-10">
               <div className="rounded-full h-[15rem] w-[15rem]">
                 <img src={InfoPic2} alt="Pic of clothes" />
@@ -161,8 +187,8 @@ function Welcome() {
             </p>
           </div>
         </div>
-        <div className="mt-16">
-          <div>
+        <div className="mt-8">
+          <div className="h-[35rem]">
             <div className="avatar mt-10">
               <div className="rounded-full h-[15rem] w-[15rem]">
                 <img src={InfoPic3} alt="Pic of clothes" />

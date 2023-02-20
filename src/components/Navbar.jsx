@@ -74,7 +74,7 @@ function Navbar({ gender, setGender, category, setCategory }) {
   return (
     <>
       <div className="navbar bg-base-200 shadow-md z-20 relative">
-        <div className="flex-none xl:hidden">
+        <div className="flex-none ">
           <button
             className="btn btn-square btn-ghost swap swap-rotate"
             onClick={openDrawer}
@@ -104,7 +104,10 @@ function Navbar({ gender, setGender, category, setCategory }) {
           </button>
         </div>
         <div className="flex-1">
-          <Link to="/" className="btn btn-ghost normal-case text-2xl underline">
+          <Link
+            to="/"
+            className="btn normal-case text-2xl nav-logo rounded-xl bg-base-200 text-[#000] border-4 hover:bg-[#000] hover:text-[#fff] transition-[background-color] ease-in duration-300 shadow-xl "
+          >
             The Top Shop
           </Link>
         </div>

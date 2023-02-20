@@ -1,10 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Questrial&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Mynerve&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 body {
   font-family: "Questrial", sans-serif;
+}
+.nav-logo {
+  font-family: "Mynerve", sans-serif;
 }
 
 .swap-on,

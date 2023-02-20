@@ -9,6 +9,7 @@ import WelcomeHome from "./pages/Welcome";
 import PrivateRoute from "./components/PrivateRoute";
 import Wishlist from "./pages/Wishlist";
 import SingleItem from "./pages/SingleItem";
+import Footer from "./components/Footer";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Link } from "react-router-dom";
@@ -40,7 +41,17 @@ function App() {
               />
             }
           />
-          <Route path="/" element={<WelcomeHome />} />
+          <Route
+            path="/"
+            element={
+              <WelcomeHome
+                category={category}
+                setCategory={setCategory}
+                gender={gender}
+                setGender={setGender}
+              />
+            }
+          />
           <Route path="/cart" element={<Cart />} />
           <Route path="/profile" element={<PrivateRoute />}>
             <Route path="/profile" element={<Profile />} />
@@ -58,6 +69,7 @@ function App() {
           <Route path="/sign-up" element={<SignUp />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
         </Routes>
+        <Footer />
       </Router>
     </>
   );
