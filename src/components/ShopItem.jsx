@@ -11,6 +11,7 @@ function ShopItem({
   id,
   category,
   setCategory,
+  gender,
   e,
   targetId,
   handleAddToCart,
@@ -35,16 +36,20 @@ function ShopItem({
   }, []);
 
   return (
-    <li className="m-10 grid-col-1 card">
+    <li className="m-10 card my-28">
       <Link to={`/shop/${e.category}/${targetId}`}>
         <img src={e.image} alt={`${e.name}`} className="w-full" />
       </Link>
 
-      {/* <button className="btn btn-secondary" onClick={handleAddToCart}>
-        Add To Cart
-      </button> */}
+      <div className="flex justify-between">
+        <p className="text-xl py-2">{e.name}</p>
+        <p className="text-xl py-2">${e.price}</p>
+      </div>
 
-      <button onClick={handleAddToWishlist}>
+      <button
+        onClick={handleAddToWishlist}
+        className="absolute text-4xl right-10 top-5"
+      >
         {!inWishlist ? <FaRegHeart /> : <FaHeart />}
       </button>
     </li>

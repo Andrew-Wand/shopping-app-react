@@ -119,7 +119,7 @@ function Navbar({ gender, setGender, category, setCategory }) {
         <div>
           <Link
             to="/"
-            className="btn normal-case text-2xl nav-logo rounded-xl bg-base-200 text-[#000] border-4 lg:border-0 lg:shadow-none lg:text-4xl lg:mr-[10rem] hover:bg-[#000] hover:text-[#fff] transition-[background-color] ease-in duration-300 shadow-xl"
+            className="btn normal-case text-2xl nav-logo rounded-xl bg-base-200 text-[#000] border-0 lg:border-0 lg:shadow-none lg:text-4xl lg:mr-[10rem] hover:bg-[#000] hover:text-[#fff] transition-[background-color] ease-in duration-300 "
           >
             The Top Shop
           </Link>
