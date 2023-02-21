@@ -11,6 +11,7 @@ import Wishlist from "./pages/Wishlist";
 import SingleItem from "./pages/SingleItem";
 import Footer from "./components/Footer";
 
+import useScrollPosition from "./hooks/useScrollPosition";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { useState } from "react";
@@ -18,6 +19,9 @@ import { useState } from "react";
 function App() {
   const [category, setCategory] = useState("tshirt");
   const [gender, setGender] = useState("men");
+
+  const scrollPosition = useScrollPosition();
+
   return (
     <>
       <Router>
@@ -26,6 +30,7 @@ function App() {
           setCategory={setCategory}
           gender={gender}
           setGender={setGender}
+          scrollPosition={scrollPosition}
         />
 
         {/* Content on page */}

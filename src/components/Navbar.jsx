@@ -10,7 +10,7 @@ import MobileNavMenu from "./MobileNavMenu";
 import DesktopNavMenu from "./DesktopNavMenu";
 import ShopNav from "./ShopNav";
 
-function Navbar({ gender, setGender, category, setCategory }) {
+function Navbar({ gender, setGender, category, setCategory, scrollPosition }) {
   const navigate = useNavigate();
   const auth = getAuth();
 
@@ -74,7 +74,7 @@ function Navbar({ gender, setGender, category, setCategory }) {
 
   return (
     <>
-      <div className="navbar bg-base-200 shadow-md z-20 relative flex justify-around">
+      <div className="navbar bg-base-200 shadow-md z-20 relative flex justify-around lg:fixed lg:top-0">
         {/* Hamburger button */}
         <div className="flex-none lg:hidden ">
           <button

@@ -71,7 +71,7 @@ function Shop({ handleAddToCart, category, setCategory, gender, setGender }) {
       ) : listings && listings.length > 0 ? (
         <>
           <main>
-            <h1 className="text-center underline text-4xl m-5 lg:text-5xl lg:m-10">
+            <h1 className="text-center underline text-4xl m-5 lg:text-5xl lg:m-10 lg:mt-36">
               {category === "tshirt"
                 ? "T-Shirts"
                 : category === "shirt" && gender === "men"
