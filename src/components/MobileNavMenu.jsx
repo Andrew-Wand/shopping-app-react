@@ -52,10 +52,10 @@ function MobileNavMenu({
   return (
     <div>
       <header>
-        <div className="tabs p-5 flex flex-col items-center">
+        <div className="tabs p-5 flex justify-around ">
           <div>
             <button
-              className="men tab tab-bordered tab-lg tab-active"
+              className="men tab tab-bordered tab-lg tab-active text-2xl"
               onClick={() => handleSelectGender("men")}
             >
               Men
@@ -64,7 +64,7 @@ function MobileNavMenu({
 
           <div>
             <button
-              className="women tab tab-bordered tab-lg"
+              className="women tab tab-bordered tab-lg text-2xl"
               onClick={() => handleSelectGender("women")}
             >
               Women
@@ -85,24 +85,40 @@ function MobileNavMenu({
           <a className="tab category-btn">Jackets</a>
         </div> */}
         <nav>
-          <ul className="menu bg-base-300 ">
+          <ul className="menu  ">
             <li>
-              <Link to="/shop" onClick={() => handleCategory("tshirt")}>
+              <Link
+                className="text-2xl"
+                to="/shop"
+                onClick={() => handleCategory("tshirt")}
+              >
                 {gender === "men" ? "T-Shirts" : "T-Shirts & Tops"}
               </Link>
             </li>
             <li className="block">
-              <Link to="/shop" onClick={() => handleCategory("shirt")}>
+              <Link
+                to="/shop"
+                onClick={() => handleCategory("shirt")}
+                className="text-2xl"
+              >
                 {gender === "men" ? "Dress Shirts" : "Dresses"}
               </Link>
             </li>
             <li>
-              <Link to="/shop" onClick={() => handleCategory("sweater")}>
+              <Link
+                to="/shop"
+                onClick={() => handleCategory("sweater")}
+                className="text-2xl"
+              >
                 Sweaters
               </Link>
             </li>
             <li>
-              <Link to="/shop" onClick={() => handleCategory("jacket")}>
+              <Link
+                to="/shop"
+                onClick={() => handleCategory("jacket")}
+                className="text-2xl"
+              >
                 Jackets
               </Link>
             </li>

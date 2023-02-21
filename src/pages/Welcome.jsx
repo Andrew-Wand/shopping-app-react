@@ -107,18 +107,18 @@ function Welcome({ gender, setGender, setCategory, category }) {
       {/* PICTURE SECTION */}
       <section className="mt-32 bg-base-300 w-full h-full">
         <div className="top flex items-center justify-between w-full">
-          <div className="left flex flex-col max-w-[50%] justify-center p-5 items-start text-lg">
+          <div className="left flex flex-col max-w-[50%] justify-center p-5 items-start text-lg lg:text-3xl">
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut sequi,
               voluptate veniam, ratione voluptatum.
             </p>
           </div>
-          <div className="right h-full w-6/12">
+          <div className="right h-full w-6/12 lg:h-6/12 lg:w-[30%]">
             <figure>
               <img
                 src={ModelMen}
                 alt="Men's Model"
-                className="overflow-hidden object-cover w-[15rem] h-full object-center"
+                className="overflow-hidden object-cover w-[15rem] h-full object-center lg:w-full "
               />
             </figure>
           </div>
@@ -127,16 +127,16 @@ function Welcome({ gender, setGender, setCategory, category }) {
           <IoShirtSharp className="text-5xl text-gray-500" />
         </div>
         <div className="bottom flex items-center justify-between w-full">
-          <div className="left h-full w-6/12">
+          <div className="left h-full w-6/12 lg:w-[28%]">
             <figure>
               <img
                 src={ModelWomen}
                 alt="Women's Model"
-                className="overflow-hidden object-cover w-[15rem] h-full object-center"
+                className="overflow-hidden object-cover w-[15rem] h-full object-center lg:w-full"
               />
             </figure>
           </div>
-          <div className="right flex flex-col max-w-[50%] justify-center p-5 items-start text-lg">
+          <div className="right flex flex-col max-w-[50%] justify-center p-5 items-start text-lg lg:text-3xl">
             <p>
               Lorem ipsum dolor, sit amet consectetur adipisicing elit.
               Excepturi voluptatibus tempora.
@@ -146,57 +146,65 @@ function Welcome({ gender, setGender, setCategory, category }) {
       </section>
 
       {/* INFO SECTION */}
-      <section className="text-center">
+      <section className="text-center lg:p-10">
         <h1 className="text-3xl m-12 uppercase font-bold">Who we are</h1>
-        <div>
+        <div className="lg:flex lg:justify-between lg:mt-32">
           <div>
-            <div className="avatar">
-              <div className="rounded-full h-[15rem] w-[15rem]">
-                <img src={InfoPic1} alt="Pic of clothes" />
+            <div>
+              <div className="avatar">
+                <div className="rounded-full h-[15rem] w-[15rem]">
+                  <img src={InfoPic1} alt="Pic of clothes" />
+                </div>
               </div>
-            </div>
 
-            <h2 className="text-2xl font-bold my-5 uppercase">Used Clothing</h2>
-            <p className="p-5">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Unde eos
-              tempore sapiente quo, nemo, dolore quisquam ab possimus enim
-              aperiam eligendi sequi tenetur. Architecto, quae sunt repellendus
-              itaque voluptas veniam.
-            </p>
+              <h2 className="text-2xl font-bold my-5 uppercase">
+                Used Clothing
+              </h2>
+              <p className="p-5">
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Unde
+                eos tempore sapiente quo, nemo, dolore quisquam ab possimus enim
+                aperiam eligendi sequi tenetur. Architecto, quae sunt
+                repellendus itaque voluptas veniam.
+              </p>
+            </div>
           </div>
-        </div>
-        <div className="mt-16 bg-base-300">
-          <div className="h-[35rem]">
-            <div className="avatar mt-10">
-              <div className="rounded-full h-[15rem] w-[15rem]">
-                <img src={InfoPic2} alt="Pic of clothes" />
+          <div className="mt-16 bg-base-300 lg:bg-base-100 lg:mt-0">
+            <div className="h-[35rem]">
+              <div className="avatar mt-10 lg:mt-0">
+                <div className="rounded-full h-[15rem] w-[15rem]">
+                  <img src={InfoPic2} alt="Pic of clothes" />
+                </div>
               </div>
-            </div>
 
-            <h2 className="text-2xl font-bold my-5 uppercase">Made to last</h2>
-            <p className="p-5">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Unde eos
-              tempore sapiente quo, nemo, dolore quisquam ab possimus enim
-              aperiam eligendi sequi tenetur. Architecto, quae sunt repellendus
-              itaque voluptas veniam.
-            </p>
+              <h2 className="text-2xl font-bold my-5 uppercase">
+                Made to last
+              </h2>
+              <p className="p-5">
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Unde
+                eos tempore sapiente quo, nemo, dolore quisquam ab possimus enim
+                aperiam eligendi sequi tenetur. Architecto, quae sunt
+                repellendus itaque voluptas veniam.
+              </p>
+            </div>
           </div>
-        </div>
-        <div className="mt-8">
-          <div className="h-[35rem]">
-            <div className="avatar mt-10">
-              <div className="rounded-full h-[15rem] w-[15rem]">
-                <img src={InfoPic3} alt="Pic of clothes" />
+          <div className="mt-8 lg:mt-0">
+            <div className="h-[35rem]">
+              <div className="avatar mt-10 lg:mt-0">
+                <div className="rounded-full h-[15rem] w-[15rem]">
+                  <img src={InfoPic3} alt="Pic of clothes" />
+                </div>
               </div>
-            </div>
 
-            <h2 className="text-2xl font-bold my-5 uppercase">Modern styles</h2>
-            <p className="p-5">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Unde eos
-              tempore sapiente quo, nemo, dolore quisquam ab possimus enim
-              aperiam eligendi sequi tenetur. Architecto, quae sunt repellendus
-              itaque voluptas veniam.
-            </p>
+              <h2 className="text-2xl font-bold my-5 uppercase">
+                Modern styles
+              </h2>
+              <p className="p-5">
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Unde
+                eos tempore sapiente quo, nemo, dolore quisquam ab possimus enim
+                aperiam eligendi sequi tenetur. Architecto, quae sunt
+                repellendus itaque voluptas veniam.
+              </p>
+            </div>
           </div>
         </div>
       </section>

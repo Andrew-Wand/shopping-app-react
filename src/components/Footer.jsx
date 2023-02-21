@@ -1,8 +1,11 @@
 function Footer() {
   return (
-    <footer className="footer p-10 bg-base-300 text-base-content ">
-      <span className="uppercase font-bold mb-0">Company</span>
-      <div className="grid grid-cols-2 gap-5">
+    <footer className="footer p-10 bg-base-300 text-base-content">
+      <span className="uppercase font-bold mb-0 lg:hidden block">Company</span>
+      <div className="grid grid-cols-2 gap-5 lg:flex lg:flex-col lg:ml-[30rem]">
+        <span className="uppercase font-bold mb-0 lg:block hidden">
+          Company
+        </span>
         <a className="link link-hover">About us</a>
         <a className="link link-hover">Contact</a>
         <a className="link link-hover">Jobs</a>
