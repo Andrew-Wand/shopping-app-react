@@ -1,7 +1,7 @@
 function Footer() {
   return (
     <footer className="footer p-10 bg-base-300 text-base-content ">
-      <span className="footer-title mb-0">Company</span>
+      <span className="uppercase font-bold mb-0">Company</span>
       <div className="grid grid-cols-2 gap-5">
         <a className="link link-hover">About us</a>
         <a className="link link-hover">Contact</a>
@@ -9,7 +9,7 @@ function Footer() {
         <a className="link link-hover">Press kit</a>
       </div>
       <div>
-        <span className="footer-title">Newsletter</span>
+        <span className="uppercase font-bold">Newsletter</span>
         <div className="form-control w-80">
           <label className="label">
             <span className="label-text">Enter your email address</span>

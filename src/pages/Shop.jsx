@@ -56,7 +56,7 @@ function Shop({ handleAddToCart, category, setCategory, gender, setGender }) {
 
   return (
     <div>
-      <header className="hidden xl:block">
+      <header className="hidden lg:block">
         <ShopNav
           category={category}
           setCategory={setCategory}

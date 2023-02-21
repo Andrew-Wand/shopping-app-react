@@ -7,6 +7,7 @@ import Loading from "./Loading";
 import { BsFillBagFill } from "react-icons/bs";
 import { FiHeart, FiUser } from "react-icons/fi";
 import MobileNavMenu from "./MobileNavMenu";
+import DesktopNavMenu from "./DesktopNavMenu";
 import ShopNav from "./ShopNav";
 
 function Navbar({ gender, setGender, category, setCategory }) {
@@ -73,8 +74,9 @@ function Navbar({ gender, setGender, category, setCategory }) {
 
   return (
     <>
-      <div className="navbar bg-base-200 shadow-md z-20 relative">
-        <div className="flex-none ">
+      <div className="navbar bg-base-200 shadow-md z-20 relative flex justify-around">
+        {/* Hamburger button */}
+        <div className="flex-none lg:hidden ">
           <button
             className="btn btn-square btn-ghost swap swap-rotate"
             onClick={openDrawer}
@@ -103,10 +105,21 @@ function Navbar({ gender, setGender, category, setCategory }) {
             )}
           </button>
         </div>
-        <div className="flex-1">
+        {/*  */}
+
+        {/* Desktop nav buttons */}
+        <DesktopNavMenu
+          setGender={setGender}
+          gender={gender}
+          setCategory={setCategory}
+          category={category}
+        />
+
+        {/*  */}
+        <div>
           <Link
             to="/"
-            className="btn normal-case text-2xl nav-logo rounded-xl bg-base-200 text-[#000] border-4 hover:bg-[#000] hover:text-[#fff] transition-[background-color] ease-in duration-300 shadow-xl "
+            className="btn normal-case text-2xl nav-logo rounded-xl bg-base-200 text-[#000] border-4 lg:border-0 lg:shadow-none lg:text-4xl lg:mr-[10rem] hover:bg-[#000] hover:text-[#fff] transition-[background-color] ease-in duration-300 shadow-xl"
           >
             The Top Shop
           </Link>
@@ -174,7 +187,6 @@ function Navbar({ gender, setGender, category, setCategory }) {
 
       {/* Hamburger menu for mobile */}
       {drawerActive ? (
-        // <div className="absolute bg-base-300 w-full h-screen transition-[width] ease-in-out duration-700 z-20 ">
         <div className="bg-base-300 h-screen translate-x-[0%] transition-[transform] ease-in-out duration-700 z-20 absolute w-full  ">
           <div>
             <MobileNavMenu

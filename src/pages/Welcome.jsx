@@ -64,25 +64,18 @@ function Welcome({ gender, setGender, setCategory, category }) {
             className="h-[30rem] brightness-[64.5%] welcome-img lg:w-full lg:h-[48rem]"
           />
         </figure>
-        <p className="text-[30px] text-base-100 text-center uppercase font-extrabold welcome-text whitespace-nowrap absolute top-32 left-10">
+        <p className="text-[30px] text-base-100 text-center uppercase font-extrabold welcome-text whitespace-nowrap absolute top-32 left-10 lg:top-[15rem] lg:left-[42rem] lg:text-5xl">
           All styles, all tops
         </p>
-        <div className="absolute top-48 left-12 ">
-          {/* <Link
-            to="/shop"
-            className="btn btn-lg bg-base-100 text-[#000] rounded-lg ml-28 mt-10"
-          >
-            Shop
-          </Link> */}
-
+        <div className="absolute top-48 left-12 lg:top-[25rem] lg:left-[36rem]">
           <button
-            className="btn btn-lg btn-secondary mb-5 w-[20rem]"
+            className="btn btn-lg btn-secondary lg:btn-primary mb-5 w-[20rem] lg:mr-20"
             onClick={() => handleSelectGender("men")}
           >
             Shop Men
           </button>
           <button
-            className="btn btn-lg btn-secondary w-[20rem]"
+            className="btn btn-lg btn-secondary lg:btn-primary w-[20rem]"
             onClick={() => handleSelectGender("women")}
           >
             Shop Women
@@ -93,11 +86,13 @@ function Welcome({ gender, setGender, setCategory, category }) {
       {/* FEATURED SECTION */}
       <section>
         <div className="mt-10">
-          <h1 className="text-center text-3xl">Featured Items</h1>
+          <h1 className="text-center text-3xl lg:text-5xl lg:m-28">
+            Featured Items
+          </h1>
           <div className="divider">
             <IoShirtSharp className="text-5xl text-gray-500" />
           </div>
-          <div className="featured-cards grid grid-cols-2 gap-10 p-5">
+          <div className="featured-cards grid grid-cols-2 gap-10 p-5 lg:flex lg:m-10">
             {featured?.map((feature) => (
               <FeaturedCard
                 featuredItems={feature.data}
