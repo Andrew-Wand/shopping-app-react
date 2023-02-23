@@ -33,7 +33,7 @@ function CartItem({ item, id, cartItems, setCartItems }) {
     });
   };
   return (
-    <li className="grid grid-cols-[104px_0.66fr_0.33fr;] my-10 border-b-slate-300 border-b-[1px] p-5">
+    <li className="grid grid-cols-[104px_0.66fr_0.33fr;] my-10 border-b-slate-300 border-b-[1px] p-5 ">
       <div>
         <figure>
           <img src={item.image} alt="Clothing" />

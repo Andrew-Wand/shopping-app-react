@@ -10,6 +10,7 @@ import {
 import { db } from "../firebase.config";
 import Loading from "../components/Loading";
 import CartItem from "../components/CartItem";
+import { IoShirtSharp } from "react-icons/io5";
 
 function Cart() {
   const [cartItems, setCartItems] = useState(null);
@@ -57,13 +58,16 @@ function Cart() {
           Shopping Cart
         </h1>
       </header>
+      <div className="divider lg:w-6/12 lg:ml-[30rem]">
+        <IoShirtSharp className="text-4xl" />
+      </div>
 
       {loading ? (
         <Loading />
       ) : cartItems && cartItems.length > 0 ? (
         <>
           <main>
-            <ul>
+            <ul className="lg:mx-48">
               {cartItems.map((item) => (
                 <CartItem
                   item={item.data}
@@ -74,9 +78,11 @@ function Cart() {
               ))}
             </ul>
 
-            <div className="flex flex-col text-left p-5">
-              <p className="text-lg mb-5">Subtotal: ${`${calcPrice}`} </p>
-              <button className="btn btn-lg">Checkout</button>
+            <div className="flex flex-col text-left p-10 lg:items-center">
+              <p className="text-lg mb-5 lg:text-xl">
+                Subtotal: ${`${calcPrice}`}
+              </p>
+              <button className="btn btn-lg lg:w-6/12">Checkout</button>
             </div>
           </main>
         </>
