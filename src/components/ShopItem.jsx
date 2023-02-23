@@ -16,8 +16,9 @@ function ShopItem({
   targetId,
   handleAddToCart,
   handleAddToWishlist,
+  inWishlist,
+  setInWishlist,
 }) {
-  const [inWishlist, setInWishlist] = useState(false);
   const auth = getAuth();
 
   useEffect(() => {
@@ -36,7 +37,7 @@ function ShopItem({
   }, []);
 
   return (
-    <li className="m-10 card my-28">
+    <div className="m-10 card my-28">
       <Link to={`/shop/${e.category}/${targetId}`}>
         <img src={e.image} alt={`${e.name}`} className="w-full" />
       </Link>
@@ -52,7 +53,7 @@ function ShopItem({
       >
         {!inWishlist ? <FaRegHeart /> : <FaHeart />}
       </button>
-    </li>
+    </div>
   );
 }
 

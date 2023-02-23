@@ -21,17 +21,11 @@ body {
 }
 
 .welcome-img {
-  transition: transform 1s ease-in-out;
   max-width: 100%;
   background-size: cover;
   object-position: center;
   object-fit: cover;
   overflow: hidden;
-}
-
-.welcome-img:hover {
-  transform: scale(1.02);
-  filter: brightness(66%);
 }
 
 .welcome-text {

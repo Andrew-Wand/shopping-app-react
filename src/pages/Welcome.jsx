@@ -64,7 +64,7 @@ function Welcome({ gender, setGender, setCategory, category }) {
             className="h-[30rem] brightness-[64.5%] welcome-img lg:w-full lg:h-[48rem]"
           />
         </figure>
-        <p className="text-[30px] text-base-100 text-center uppercase font-extrabold welcome-text whitespace-nowrap absolute top-32 left-10 lg:top-[15rem] lg:left-[42rem] lg:text-5xl">
+        <p className="text-[30px] text-base-100 text-center uppercase font-extrabold welcome-text whitespace-nowrap absolute top-32 left-10 lg:top-[20rem] lg:left-[42rem] lg:text-5xl">
           All styles, all tops
         </p>
         <div className="absolute top-48 left-12 lg:top-[25rem] lg:left-[36rem]">

@@ -10,6 +10,7 @@ import {
   setDoc,
   doc,
   addDoc,
+  deleteDoc,
 } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 import { db } from "../firebase.config";
@@ -21,9 +22,7 @@ import { IoShirtSharp } from "react-icons/io5";
 function Shop({ handleAddToCart, category, setCategory, gender, setGender }) {
   const [listings, setListings] = useState(null);
   const [loading, setLoading] = useState(true);
-
-  // const [category, setCategory] = useState("tshirt");
-  // const [gender, setGender] = useState("men");
+  const [inWishlist, setInWishlist] = useState(false);
 
   const auth = getAuth();
 
@@ -88,7 +87,7 @@ function Shop({ handleAddToCart, category, setCategory, gender, setGender }) {
               <IoShirtSharp className="text-4xl" />
             </div>
             <ul className="lg:grid lg:grid-cols-3">
-              {listings.map((e, listing) => {
+              {listings?.map((e, listing) => {
                 if (e.data.gender !== gender) {
                   return;
                 } else if (e.data.category === category) {
@@ -105,9 +104,20 @@ function Shop({ handleAddToCart, category, setCategory, gender, setGender }) {
                       console.log(error);
                     }
                   };
+
+                  // Delete from wishlist after click
+                  const onDeleteFromWishlist = async (wishlistId) => {
+                    if (window.confirm("Are you sure you want to delete?")) {
+                      await deleteDoc(doc(db, "wishlist", wishlistId));
+                    }
+                  };
                   // Add items to wishlist
                   const handleAddToWishlist = async () => {
-                    try {
+                    if (inWishlist === true) {
+                      setInWishlist(!inWishlist);
+                      onDeleteFromWishlist(e.id);
+                    } else {
+                      setInWishlist(!inWishlist);
                       const wishlistClick = e;
 
                       const dataCopy = {
@@ -115,28 +125,28 @@ function Shop({ handleAddToCart, category, setCategory, gender, setGender }) {
                         userRef: auth.currentUser.uid,
                       };
 
-                      if (auth.currentUser) {
-                        await setDoc(
-                          doc(db, "wishlist", wishlistClick.id),
-                          dataCopy
-                        );
-                      }
-                    } catch (error) {
-                      console.log("Could not add to wishlist");
+                      await setDoc(
+                        doc(db, "wishlist", wishlistClick.id),
+                        dataCopy
+                      );
                     }
                   };
+
                   return (
                     <ShopItem
                       listing={listing.data}
-                      id={listing.id}
-                      key={listing.id}
+                      id={e.id}
+                      key={e.id}
                       category={category}
                       setCategory={setCategory}
                       gender={gender}
+                      inWishlist={inWishlist}
+                      setInWishlist={setInWishlist}
                       e={e.data}
                       targetId={e.id}
                       handleAddToCart={handleAddToCart}
                       handleAddToWishlist={handleAddToWishlist}
+                      onDeleteFromWishlist={onDeleteFromWishlist}
                     />
                   );
                 }

@@ -20,8 +20,6 @@ function App() {
   const [category, setCategory] = useState("tshirt");
   const [gender, setGender] = useState("men");
 
-  const scrollPosition = useScrollPosition();
-
   return (
     <>
       <Router>
@@ -30,7 +28,6 @@ function App() {
           setCategory={setCategory}
           gender={gender}
           setGender={setGender}
-          scrollPosition={scrollPosition}
         />
 
         {/* Content on page */}
