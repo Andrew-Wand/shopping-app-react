@@ -22,7 +22,6 @@ import { IoShirtSharp } from "react-icons/io5";
 function Shop({ handleAddToCart, category, setCategory, gender, setGender }) {
   const [listings, setListings] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [inWishlist, setInWishlist] = useState(false);
 
   const auth = getAuth();
 
@@ -105,33 +104,6 @@ function Shop({ handleAddToCart, category, setCategory, gender, setGender }) {
                     }
                   };
 
-                  // Delete from wishlist after click
-                  const onDeleteFromWishlist = async (wishlistId) => {
-                    if (window.confirm("Are you sure you want to delete?")) {
-                      await deleteDoc(doc(db, "wishlist", wishlistId));
-                    }
-                  };
-                  // Add items to wishlist
-                  const handleAddToWishlist = async () => {
-                    if (inWishlist === true) {
-                      setInWishlist(!inWishlist);
-                      onDeleteFromWishlist(e.id);
-                    } else {
-                      setInWishlist(!inWishlist);
-                      const wishlistClick = e;
-
-                      const dataCopy = {
-                        ...wishlistClick.data,
-                        userRef: auth.currentUser.uid,
-                      };
-
-                      await setDoc(
-                        doc(db, "wishlist", wishlistClick.id),
-                        dataCopy
-                      );
-                    }
-                  };
-
                   return (
                     <ShopItem
                       listing={listing.data}
@@ -140,13 +112,9 @@ function Shop({ handleAddToCart, category, setCategory, gender, setGender }) {
                       category={category}
                       setCategory={setCategory}
                       gender={gender}
-                      inWishlist={inWishlist}
-                      setInWishlist={setInWishlist}
                       e={e.data}
                       targetId={e.id}
                       handleAddToCart={handleAddToCart}
-                      handleAddToWishlist={handleAddToWishlist}
-                      onDeleteFromWishlist={onDeleteFromWishlist}
                     />
                   );
                 }
