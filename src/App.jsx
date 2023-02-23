@@ -10,6 +10,7 @@ import PrivateRoute from "./components/PrivateRoute";
 import Wishlist from "./pages/Wishlist";
 import SingleItem from "./pages/SingleItem";
 import Footer from "./components/Footer";
+import Checkout from "./pages/Checkout";
 
 import useScrollPosition from "./hooks/useScrollPosition";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -69,6 +70,7 @@ function App() {
 
           <Route path="/sign-in" element={<SignIn />} />
           <Route path="/sign-up" element={<SignUp />} />
+          <Route path="/checkout" element={<Checkout />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
         </Routes>
         <Footer />

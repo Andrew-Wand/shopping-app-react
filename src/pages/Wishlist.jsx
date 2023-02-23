@@ -10,6 +10,7 @@ import {
 } from "firebase/firestore";
 import Loading from "../components/Loading";
 import WishlistItem from "../components/WishlistItem";
+import { IoShirtSharp } from "react-icons/io5";
 
 import { db } from "../firebase.config";
 
@@ -47,13 +48,21 @@ function Wishlist() {
 
   return (
     <div>
-      <header>Wishlist</header>
+      <header>
+        <h1 className="text-center p-5 text-4xl lg:p-10 lg:text-6xl">
+          Wishlist
+        </h1>
+      </header>
+
+      <div className="divider lg:w-6/12 lg:ml-[30rem]">
+        <IoShirtSharp className="text-4xl" />
+      </div>
 
       {loading ? (
         <Loading />
       ) : wishlist && wishlist.length > 0 ? (
         <main>
-          <ul>
+          <ul className="lg:mx-56">
             {wishlist.map((wishItem) => (
               <WishlistItem
                 wishItem={wishItem}

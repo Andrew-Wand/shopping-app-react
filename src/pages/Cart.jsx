@@ -8,6 +8,7 @@ import {
   doc,
 } from "firebase/firestore";
 import { db } from "../firebase.config";
+import { useNavigate, Link } from "react-router-dom";
 import Loading from "../components/Loading";
 import CartItem from "../components/CartItem";
 import { IoShirtSharp } from "react-icons/io5";
@@ -15,6 +16,8 @@ import { IoShirtSharp } from "react-icons/io5";
 function Cart() {
   const [cartItems, setCartItems] = useState(null);
   const [loading, setLoading] = useState(true);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchCartItems = async () => {
@@ -79,10 +82,14 @@ function Cart() {
             </ul>
 
             <div className="flex flex-col text-left p-10 lg:items-center">
-              <p className="text-lg mb-5 lg:text-xl">
-                Subtotal: ${`${calcPrice}`}
-              </p>
-              <button className="btn btn-lg lg:w-6/12">Checkout</button>
+              <div className="lg:flex flex justify-around">
+                <p className="text-lg mb-5 lg:text-xl lg:mr-48">Subtotal:</p>
+                <p className="text-lg mb-5 lg:text-xl">${`${calcPrice}`}</p>
+              </div>
+
+              <Link to="/checkout" className="btn btn-lg lg:w-6/12">
+                Checkout
+              </Link>
             </div>
           </main>
         </>
