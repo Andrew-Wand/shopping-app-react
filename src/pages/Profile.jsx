@@ -49,20 +49,23 @@ function Profile() {
   };
 
   return (
-    <div>
-      <header>
-        <p>My Profile</p>
-        <button onClick={onLogout}>Logout</button>
+    <div className="h-screen">
+      <header className="flex justify-between p-10">
+        <p className="text-4xl underline font-bold">My Profile</p>
+        <button className="btn" onClick={onLogout}>
+          Logout
+        </button>
       </header>
 
-      <main>
+      <main className="bg-base-200 p-10 m-5 shadow-xl rounded-lg lg:w-6/12 ">
         <div>
-          <p>Personal Details</p>
+          <p className="text-xl font-bold">Personal Details</p>
           <p
             onClick={() => {
               changeDetails && onSubmit();
               setChangeDetails((prevState) => !prevState);
             }}
+            className="btn my-5"
           >
             {changeDetails ? "done" : "change"}
           </p>
@@ -70,20 +73,17 @@ function Profile() {
 
         <div>
           <form>
-            <input
-              type="text"
-              id="name"
-              disabled={!changeDetails}
-              value={name}
-              onChange={onChange}
-            />
-            <input
-              type="text"
-              id="email"
-              disabled={!changeDetails}
-              value={email}
-              onChange={onChange}
-            />
+            <label className="input-group">
+              <span className="bg-base-200 text-xl">Name:</span>
+              <input
+                type="text"
+                id="name"
+                disabled={!changeDetails}
+                value={name}
+                onChange={onChange}
+                className="input input-bordered w-full max-w-xs text-xl"
+              />
+            </label>
           </form>
         </div>
       </main>
