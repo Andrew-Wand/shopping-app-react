@@ -74,7 +74,7 @@ function Navbar({ gender, setGender, category, setCategory, scrollPosition }) {
 
   return (
     <>
-      <div className="navbar bg-base-200 shadow-md z-20 relative flex justify-around lg:fixed lg:top-0">
+      <div className="navbar bg-base-200 shadow-md z-20 relative flex justify-around lg:sticky lg:top-0 sticky top-0">
         {/* Hamburger button */}
         <div className="flex-none lg:hidden ">
           <button

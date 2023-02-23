@@ -53,7 +53,9 @@ function Cart() {
   return (
     <div>
       <header>
-        <div>Cart</div>
+        <h1 className="text-center p-5 text-4xl lg:p-10 lg:text-6xl">
+          Shopping Cart
+        </h1>
       </header>
 
       {loading ? (
@@ -72,7 +74,10 @@ function Cart() {
               ))}
             </ul>
 
-            <p>Total: ${`${calcPrice}`} </p>
+            <div className="flex flex-col text-left p-5">
+              <p className="text-lg mb-5">Subtotal: ${`${calcPrice}`} </p>
+              <button className="btn btn-lg">Checkout</button>
+            </div>
           </main>
         </>
       ) : (

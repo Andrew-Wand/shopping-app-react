@@ -2,6 +2,7 @@ import { useState } from "react";
 import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
 import { doc, updateDoc, deleteDoc } from "firebase/firestore";
 import { db } from "../firebase.config";
+import { IoTrashOutline } from "react-icons/io5";
 
 function CartItem({ item, id, cartItems, setCartItems }) {
   const [quantity, setQuantity] = useState(
@@ -32,16 +33,17 @@ function CartItem({ item, id, cartItems, setCartItems }) {
     });
   };
   return (
-    <>
-      <li>
-        <h1>{item.name}</h1>
-
+    <li className="grid grid-cols-[104px_0.66fr_0.33fr;] my-10 border-b-slate-300 border-b-[1px] p-5">
+      <div>
         <figure>
           <img src={item.image} alt="Clothing" />
         </figure>
+      </div>
 
-        <p>Price : ${item.price}</p>
-        <div className="flex mt-2 ml-1">
+      <div className="m-5 flex flex-col justify-between">
+        <h1 className="text-md font-bold">{item.name}</h1>
+        <p className="py-2">${item.price}</p>
+        <div className=" mt-2 ml-1">
           {/* Adjust Quantity */}
           <div className="text-lg font-bold text-neutral border border-primary flex justify-around w-24">
             <div
@@ -59,12 +61,18 @@ function CartItem({ item, id, cartItems, setCartItems }) {
             </div>
           </div>
         </div>
+      </div>
 
-        <button type="button" onClick={() => onDeleteFromCart(id)}>
-          Delete
+      <div className="flex justify-center">
+        <button
+          type="button"
+          onClick={() => onDeleteFromCart(id)}
+          className="text-2xl"
+        >
+          <IoTrashOutline />
         </button>
-      </li>
-    </>
+      </div>
+    </li>
   );
 }
 
