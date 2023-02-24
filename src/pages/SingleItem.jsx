@@ -30,6 +30,7 @@ function SingleItem() {
   // Adding items to cart
   const handleAddToCart = async () => {
     try {
+      // Add to cartitems collection
       const itemId = params.listingId;
       const cartClick = listing;
 

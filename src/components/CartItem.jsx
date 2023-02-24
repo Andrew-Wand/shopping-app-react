@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
 import { doc, updateDoc, deleteDoc } from "firebase/firestore";
 import { db } from "../firebase.config";
@@ -42,6 +42,7 @@ function CartItem({ item, id, cartItems, setCartItems }) {
 
       <div className="m-5 flex flex-col justify-between">
         <h1 className="text-md font-bold">{item.name}</h1>
+        <p className="py-2">{item.size}</p>
         <p className="py-2">${item.price}</p>
         <div className=" mt-2 ml-1">
           {/* Adjust Quantity */}

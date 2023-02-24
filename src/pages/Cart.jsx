@@ -83,7 +83,9 @@ function Cart() {
 
             <div className="flex flex-col text-left p-10 lg:items-center">
               <div className="lg:flex flex justify-around">
-                <p className="text-lg mb-5 lg:text-xl lg:mr-48">Subtotal:</p>
+                <p className="text-lg mb-5 lg:text-xl lg:mr-48 font-bold">
+                  Subtotal:
+                </p>
                 <p className="text-lg mb-5 lg:text-xl">${`${calcPrice}`}</p>
               </div>
 
