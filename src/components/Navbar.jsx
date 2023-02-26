@@ -53,8 +53,10 @@ function Navbar({ gender, setGender, category, setCategory, scrollPosition }) {
   const openDrawer = () => {
     if (!drawerActive) {
       setDrawerActive(+true);
+      document.querySelector("body").classList.add("disable-scroll");
     } else {
       setDrawerActive(false);
+      document.querySelector("body").classList.remove("disable-scroll");
     }
   };
 
@@ -187,16 +189,14 @@ function Navbar({ gender, setGender, category, setCategory, scrollPosition }) {
 
       {/* Hamburger menu for mobile */}
       {drawerActive ? (
-        <div className="bg-base-300 h-screen translate-x-[0%] transition-[transform] ease-in-out duration-700 z-20 absolute w-full  ">
-          <div>
-            <MobileNavMenu
-              setGender={setGender}
-              gender={gender}
-              setCategory={setCategory}
-              category={category}
-              setDrawerActive={setDrawerActive}
-            />
-          </div>
+        <div className="mobile-nav bg-base-300  translate-x-[0%] transition-[transform] ease-in-out duration-700 z-20 absolute w-full ">
+          <MobileNavMenu
+            setGender={setGender}
+            gender={gender}
+            setCategory={setCategory}
+            category={category}
+            setDrawerActive={setDrawerActive}
+          />
         </div>
       ) : (
         <div className="-translate-x-[100%] "></div>

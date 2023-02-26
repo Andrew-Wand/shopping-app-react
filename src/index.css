@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Questrial&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Mynerve&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -7,8 +8,13 @@
 body {
   font-family: "Questrial", sans-serif;
 }
+
+body.disable-scroll {
+  overflow-y: hidden;
+}
+
 .nav-logo {
-  font-family: "Mynerve", sans-serif;
+  font-family: "Questrial", sans-serif;
 }
 
 .swap-on,
@@ -30,4 +36,11 @@ body {
 
 .welcome-text {
   text-shadow: #000 0 0 15px;
+}
+
+.mobile-nav {
+  height: calc(100vh);
+  overflow-x: hidden;
+  overflow-y: hidden;
+  position: fixed;
 }
