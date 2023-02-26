@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { FaRegHeart, FaHeart } from "react-icons/fa";
 import { useState, useEffect } from "react";
-
 import { getDoc, doc, setDoc, deleteDoc } from "firebase/firestore";
 import { db } from "../firebase.config";
 import { getAuth } from "firebase/auth";

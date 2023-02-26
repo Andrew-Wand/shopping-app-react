@@ -11,7 +11,7 @@ import { db } from "../firebase.config";
 import { useNavigate, Link } from "react-router-dom";
 import Loading from "../components/Loading";
 import CartItem from "../components/CartItem";
-import { IoShirtSharp } from "react-icons/io5";
+import { IoCartSharp } from "react-icons/io5";
 
 function Cart() {
   const [cartItems, setCartItems] = useState(null);
@@ -61,8 +61,8 @@ function Cart() {
           Shopping Cart
         </h1>
       </header>
-      <div className="divider lg:w-6/12 lg:ml-[30rem]">
-        <IoShirtSharp className="text-4xl" />
+      <div className="divider lg:w-6/12 lg:ml-[25%]">
+        <IoCartSharp className="text-5xl" />
       </div>
 
       {loading ? (
@@ -70,7 +70,7 @@ function Cart() {
       ) : cartItems && cartItems.length > 0 ? (
         <>
           <main>
-            <ul className="lg:mx-48">
+            <ul className="lg:mx-[30rem]">
               {cartItems.map((item) => (
                 <CartItem
                   item={item.data}

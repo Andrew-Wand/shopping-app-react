@@ -85,7 +85,7 @@ function MobileNavMenu({
           <a className="tab category-btn">Jackets</a>
         </div> */}
         <nav>
-          <ul className="menu  ">
+          <ul className="menu">
             <li>
               <Link
                 className="text-2xl"

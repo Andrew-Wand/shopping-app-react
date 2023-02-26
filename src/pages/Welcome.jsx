@@ -10,10 +10,17 @@ import InfoPic1 from "../assets/other/info-pic-1.jpg";
 import InfoPic2 from "../assets/other/info-pic-2.jpg";
 import InfoPic3 from "../assets/other/info-pic-3.jpg";
 import { IoShirtSharp } from "react-icons/io5";
+import "aos/dist/aos.css";
+import AOS from "aos";
 
 function Welcome({ gender, setGender, setCategory, category }) {
   const navigate = useNavigate();
   const [featured, setFeatured] = useState(null);
+
+  // Initialize animation on scroll
+  useEffect(() => {
+    AOS.init();
+  }, []);
 
   const handleSelectGender = (selection) => {
     if (selection === "men") {
@@ -64,12 +71,13 @@ function Welcome({ gender, setGender, setCategory, category }) {
             className="h-[30rem] brightness-[64.5%] welcome-img lg:w-full lg:h-[48rem]"
           />
         </figure>
-        <p className="text-[30px] text-base-100 text-center uppercase font-extrabold welcome-text whitespace-nowrap absolute top-32 left-10 lg:top-[20rem] lg:left-[42rem] lg:text-5xl">
-          All styles, all tops
-        </p>
-        <div className="absolute top-48 left-12 lg:top-[25rem] lg:left-[36rem]">
+
+        <div className="absolute top-[3%] left-[2%] lg:top-[8%] lg:left-[30%] text-center">
+          <p className="text-[30px] text-base-100 text-center uppercase font-extrabold welcome-text whitespace-nowrap lg:text-5xl mb-10">
+            All styles, all tops
+          </p>
           <button
-            className="btn btn-lg btn-secondary lg:btn-primary mb-5 w-[20rem] lg:mr-20"
+            className="btn btn-lg btn-secondary lg:btn-primary mb-5 w-[20rem] lg:mr-20 "
             onClick={() => handleSelectGender("men")}
           >
             Shop Men
@@ -86,13 +94,28 @@ function Welcome({ gender, setGender, setCategory, category }) {
       {/* FEATURED SECTION */}
       <section>
         <div className="mt-10">
-          <h1 className="text-center text-3xl lg:text-5xl lg:m-28">
+          <h1
+            className="text-center text-3xl lg:text-5xl lg:m-28"
+            data-aos-duration="1500"
+            data-aos="fade-left"
+            data-aos-once="true"
+          >
             Featured Items
           </h1>
-          <div className="divider">
+          <div
+            className="divider"
+            data-aos-duration="1500"
+            data-aos="fade"
+            data-aos-once="true"
+          >
             <IoShirtSharp className="text-5xl text-gray-500" />
           </div>
-          <div className="featured-cards grid grid-cols-2 gap-10 p-5 lg:flex lg:m-10">
+          <div
+            className="featured-cards grid grid-cols-2 gap-10 p-5 lg:flex lg:m-10"
+            data-aos-duration="1500"
+            data-aos="fade"
+            data-aos-once="true"
+          >
             {featured?.map((feature) => (
               <FeaturedCard
                 featuredItems={feature.data}
@@ -108,7 +131,12 @@ function Welcome({ gender, setGender, setCategory, category }) {
       <section className="mt-32 bg-base-300 w-full h-full">
         <div className="top flex items-center justify-between w-full">
           <div className="left flex flex-col max-w-[50%] justify-center p-5 items-start text-lg lg:text-3xl">
-            <p>
+            <p
+              data-aos-duration="1500"
+              data-aos="fade-right"
+              data-aos-once="true"
+              data-aos-anchor-placement="top-center"
+            >
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut sequi,
               voluptate veniam, ratione voluptatum.
             </p>
@@ -119,6 +147,11 @@ function Welcome({ gender, setGender, setCategory, category }) {
                 src={ModelMen}
                 alt="Men's Model"
                 className="overflow-hidden object-cover w-[15rem] h-full object-center lg:w-full "
+                data-aos-duration="1500"
+                data-aos="fade"
+                data-aos-once="true"
+                data-aos-anchor-placement="top-center"
+                data-aos-offset="200"
               />
             </figure>
           </div>
@@ -133,11 +166,19 @@ function Welcome({ gender, setGender, setCategory, category }) {
                 src={ModelWomen}
                 alt="Women's Model"
                 className="overflow-hidden object-cover w-[15rem] h-full object-center lg:w-full"
+                data-aos-duration="1500"
+                data-aos="fade"
+                data-aos-once="true"
+                data-aos-anchor-placement="top-center"
               />
             </figure>
           </div>
           <div className="right flex flex-col max-w-[50%] justify-center p-5 items-start text-lg lg:text-3xl">
-            <p>
+            <p
+              data-aos-duration="1500"
+              data-aos="fade-left"
+              data-aos-once="true"
+            >
               Lorem ipsum dolor, sit amet consectetur adipisicing elit.
               Excepturi voluptatibus tempora.
             </p>
@@ -147,10 +188,25 @@ function Welcome({ gender, setGender, setCategory, category }) {
 
       {/* INFO SECTION */}
       <section className="text-center lg:p-10">
-        <h1 className="text-3xl m-12 uppercase font-bold">Who we are</h1>
+        <h1
+          className="text-3xl m-12 uppercase font-bold"
+          data-aos-duration="1200"
+          data-aos="fade"
+          data-aos-once="true"
+          data-aos-anchor-placement="top-bottom"
+          data-aos-delay="50"
+        >
+          Who we are
+        </h1>
         <div className="lg:flex lg:justify-between lg:mt-32">
           <div>
-            <div>
+            <div
+              data-aos-duration="1200"
+              data-aos="fade"
+              data-aos-once="true"
+              data-aos-anchor-placement="top-bottom"
+              data-aos-delay="50"
+            >
               <div className="avatar">
                 <div className="rounded-full h-[15rem] w-[15rem]">
                   <img src={InfoPic1} alt="Pic of clothes" />
@@ -168,7 +224,14 @@ function Welcome({ gender, setGender, setCategory, category }) {
               </p>
             </div>
           </div>
-          <div className="mt-16 bg-base-300 lg:bg-base-100 lg:mt-0">
+          <div
+            className="mt-16 bg-base-300 lg:bg-base-100 lg:mt-0"
+            data-aos-duration="1200"
+            data-aos="fade"
+            data-aos-once="true"
+            data-aos-anchor-placement="top-bottom"
+            data-aos-delay="150"
+          >
             <div className="h-[35rem]">
               <div className="avatar mt-10 lg:mt-0">
                 <div className="rounded-full h-[15rem] w-[15rem]">
@@ -187,7 +250,14 @@ function Welcome({ gender, setGender, setCategory, category }) {
               </p>
             </div>
           </div>
-          <div className="mt-8 lg:mt-0">
+          <div
+            className="mt-8 lg:mt-0"
+            data-aos-duration="1200"
+            data-aos="fade"
+            data-aos-once="true"
+            data-aos-anchor-placement="top-bottom"
+            data-aos-delay="250"
+          >
             <div className="h-[35rem]">
               <div className="avatar mt-10 lg:mt-0">
                 <div className="rounded-full h-[15rem] w-[15rem]">

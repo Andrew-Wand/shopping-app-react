@@ -76,7 +76,7 @@ function Navbar({ gender, setGender, category, setCategory, scrollPosition }) {
 
   return (
     <>
-      <div className="navbar bg-base-200 shadow-md z-20 relative flex justify-around lg:sticky lg:top-0 sticky top-0">
+      <div className="navbar bg-base-200 shadow-md z-20 flex justify-around lg:sticky sticky top-0">
         {/* Hamburger button */}
         <div className="flex-none lg:hidden ">
           <button
@@ -121,7 +121,7 @@ function Navbar({ gender, setGender, category, setCategory, scrollPosition }) {
         <div>
           <Link
             to="/"
-            className="btn normal-case text-2xl nav-logo rounded-xl bg-base-200 text-[#000] border-0 lg:border-0 lg:shadow-none lg:text-4xl lg:mr-[10rem] hover:bg-[#000] hover:text-[#fff] transition-[background-color] ease-in duration-300 "
+            className="btn normal-case text-[1.2rem] nav-logo rounded-xl bg-base-200 text-[#000] border-0 lg:border-0 lg:shadow-none lg:text-4xl lg:mr-[10rem] hover:bg-[#000] hover:text-[#fff] transition-[background-color] ease-in duration-300 w-full lg:w-8/12"
           >
             The Top Shop
           </Link>

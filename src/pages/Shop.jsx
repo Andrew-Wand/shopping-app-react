@@ -82,7 +82,7 @@ function Shop({ handleAddToCart, category, setCategory, gender, setGender }) {
                 ? "Jackets"
                 : ""}
             </h1>
-            <div className="divider lg:w-6/12 lg:ml-[30rem]">
+            <div className="divider lg:w-6/12 lg:ml-[25%]">
               <IoShirtSharp className="text-4xl" />
             </div>
             <ul className="lg:grid lg:grid-cols-3 lg:mx-48">
