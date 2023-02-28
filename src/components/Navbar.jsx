@@ -129,26 +129,22 @@ function Navbar({ gender, setGender, category, setCategory, scrollPosition }) {
         <div className="flex-none">
           <div className="dropdown dropdown-end mr-1">
             <label tabIndex={0} className="btn btn-ghost btn-circle ">
-              <div className="indicator">
+              <Link to="/cart">
                 <BsFillBagFill className="text-3xl" />
-              </div>
+              </Link>
             </label>
-            <div
+            {/* <div
               tabIndex={0}
               className="mt-3 card card-compact dropdown-content w-52 bg-base-100 shadow"
             >
               <div className="card-body">
-                <span className="font-bold text-lg">{cartTotal} Items</span>
-                <span className="text-info">
-                  Subtotal: ${`${calcTotalPrice}`}
-                </span>
                 <div className="card-actions">
                   <Link to="/cart" className="btn btn-primary btn-block">
                     View cart
                   </Link>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
 
           <div className="dropdown-end mr-1">

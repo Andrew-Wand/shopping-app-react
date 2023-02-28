@@ -18,6 +18,7 @@ function ShopItem({
   const auth = getAuth();
 
   const [inWishlist, setInWishlist] = useState(false);
+  const [wishlistAlert, setWishlistAlert] = useState(false);
 
   // Add items to wishlist
   const handleAddToWishlist = async () => {
@@ -33,8 +34,15 @@ function ShopItem({
       };
 
       await setDoc(doc(db, "wishlist", targetId), dataCopy);
+      setWishlistAlert(true);
     }
   };
+
+  useEffect(() => {
+    setTimeout(() => {
+      setWishlistAlert(false);
+    }, 2000);
+  }, []);
 
   // Delete from wishlist after click
   const onDeleteFromWishlist = async (wishlistId) => {
@@ -63,25 +71,42 @@ function ShopItem({
   }, []);
 
   return (
-    <li className="m-10 card my-[6rem] animate__animated animate__fadeIn animate__slow">
-      <Link to={`/shop/${e.category}/${targetId}`}>
-        <img src={e.image} alt={`${e.name}`} className="w-full" />
-      </Link>
+    <>
+      {wishlistAlert ? (
+        <div className="toast lg:toast-start toast-end z-10">
+          <div className="alert alert-info bg-black ">
+            <div>
+              <span>Added to wishlist.</span>
+            </div>
+          </div>
+        </div>
+      ) : (
+        <></>
+      )}
 
-      <div className="flex justify-between">
-        <p className="text-xl py-2">{e.name}</p>
-        <p className="text-xl py-2">${e.price}</p>
-      </div>
+      <li className="m-10 card my-[6rem] animate__animated animate__fadeIn animate__slow">
+        <Link to={`/shop/${e.category}/${targetId}`}>
+          <img src={e.image} alt={`${e.name}`} className="w-full" />
+        </Link>
 
-      <div>
-        <button
-          onClick={handleAddToWishlist}
-          className="absolute text-4xl right-[10%] top-[5%]"
-        >
-          {!inWishlist ? <FaRegHeart /> : <FaHeart />}
-        </button>
-      </div>
-    </li>
+        <div className="flex justify-between">
+          <Link className="text-xl py-2" to={`/shop/${e.category}/${targetId}`}>
+            {e.name}
+          </Link>
+          {/* <p className="text-xl py-2">{e.name}</p> */}
+          <p className="text-xl py-2">${e.price}</p>
+        </div>
+
+        <div>
+          <button
+            onClick={handleAddToWishlist}
+            className="absolute text-4xl right-[10%] top-[5%]"
+          >
+            {!inWishlist ? <FaRegHeart /> : <FaHeart />}
+          </button>
+        </div>
+      </li>
+    </>
   );
 }
 

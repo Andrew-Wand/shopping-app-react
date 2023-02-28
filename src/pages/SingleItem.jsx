@@ -4,11 +4,14 @@ import { getDoc, doc, setDoc, updateDoc, increment } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 import { db } from "../firebase.config";
 import Loading from "../components/Loading";
+import "animate.css";
 
 function SingleItem() {
   const [listing, setListing] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [size, setSize] = useState("");
+  const [size, setSize] = useState("Small");
+  const [itemQuantity, setItemQuantity] = useState(1);
+  const [addAnim, setAddAnim] = useState(false);
 
   const navigate = useNavigate();
   const params = useParams();
@@ -27,6 +30,11 @@ function SingleItem() {
     fetchSingleItem();
   }, [navigate, params.listingId]);
 
+  // Add to cart alert
+  // const cartAddAlert = () => {
+
+  // };
+
   // Adding items to cart
   const handleAddToCart = async () => {
     try {
@@ -39,18 +47,31 @@ function SingleItem() {
 
       const dataCopy = {
         ...cartClick,
-        quantity: increment(1),
+        quantity: itemQuantity,
         size: size,
       };
 
+      setAddAnim(true);
       await setDoc(doc(db, "cartItems", itemId), dataCopy);
     } catch (error) {
       console.log(error);
     }
   };
 
+  useEffect(() => {
+    setTimeout(() => {
+      setAddAnim(false);
+    }, 5000);
+  }, []);
+
+  // Sets the size for select
   const onSizeChange = (e) => {
     setSize(e.target.value);
+  };
+
+  // Sets the quantity for selection drop down
+  const onQuantityChange = (e) => {
+    setItemQuantity(e.target.value);
   };
 
   if (loading) {
@@ -59,6 +80,19 @@ function SingleItem() {
 
   return (
     <div className="mb-10">
+      {addAnim ? (
+        <div className="toast lg:toast-start toast-end z-10">
+          <div className="alert alert-info bg-black ">
+            <div>
+              <span>Added to cart.</span>
+            </div>
+          </div>
+        </div>
+      ) : (
+        <>
+          <p></p>
+        </>
+      )}
       <header>
         <div>
           <Link to="/shop" className="btn m-5">
@@ -79,6 +113,22 @@ function SingleItem() {
               {listing.name}
             </h1>
             <span className="text-[20px]  ml-10">${listing.price}</span>
+            <select
+              name="quantity"
+              id="quantity"
+              className="select select-bordered ml-[14rem]"
+              onChange={onQuantityChange}
+            >
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+            </select>
             <select
               name="size"
               id="size"

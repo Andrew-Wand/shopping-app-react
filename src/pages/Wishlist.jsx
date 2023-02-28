@@ -79,7 +79,17 @@ function Wishlist() {
           </ul>
         </main>
       ) : (
-        <p>Nothing here</p>
+        <div className="hero min-h-screen bg-base-100">
+          <div className="hero-content text-center mb-20">
+            <div className="max-w-md">
+              <h1 className="text-3xl font-bold">Wishlist Is Empty</h1>
+
+              <Link to="/shop" className="btn btn-primary mt-5">
+                Back To Shop
+              </Link>
+            </div>
+          </div>
+        </div>
       )}
     </div>
   );
