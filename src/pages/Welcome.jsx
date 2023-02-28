@@ -72,18 +72,18 @@ function Welcome({ gender, setGender, setCategory, category }) {
           />
         </figure>
 
-        <div className="absolute top-[3%] left-[2%] lg:top-[8%] lg:left-[30%] text-center">
+        <div className="absolute top-[3%] left-[2%] lg:top-[7%] lg:left-[28%] text-center bg-zinc-500/[.6] rounded-md shadow-xl lg:px-10 lg:py-5 py-5 mr-[2%] lg:mr-0">
           <p className="text-[30px] text-base-100 text-center uppercase font-extrabold welcome-text whitespace-nowrap lg:text-5xl mb-10">
             All styles, all tops
           </p>
           <button
-            className="btn btn-lg btn-secondary lg:btn-primary mb-5 w-[20rem] lg:mr-20 "
+            className="btn btn-lg btn-secondary lg:btn-primary mb-5 w-[20rem] lg:mr-20 rounded-md"
             onClick={() => handleSelectGender("men")}
           >
             Shop Men
           </button>
           <button
-            className="btn btn-lg btn-secondary lg:btn-primary w-[20rem]"
+            className="btn btn-lg btn-secondary lg:btn-primary w-[20rem] rounded-md"
             onClick={() => handleSelectGender("women")}
           >
             Shop Women

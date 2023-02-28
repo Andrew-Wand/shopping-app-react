@@ -131,9 +131,6 @@ function Navbar({ gender, setGender, category, setCategory, scrollPosition }) {
             <label tabIndex={0} className="btn btn-ghost btn-circle ">
               <div className="indicator">
                 <BsFillBagFill className="text-3xl" />
-                <span className="badge badge-sm indicator-item">
-                  {cartTotal}
-                </span>
               </div>
             </label>
             <div

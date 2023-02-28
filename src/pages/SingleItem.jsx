@@ -59,6 +59,13 @@ function SingleItem() {
 
   return (
     <div className="mb-10">
+      <header>
+        <div>
+          <Link to="/shop" className="btn m-5">
+            Back To Shop
+          </Link>
+        </div>
+      </header>
       <main>
         <div className="flex flex-col lg:flex-row">
           <img
@@ -71,6 +78,7 @@ function SingleItem() {
             <h1 className="text-3xl my-10 ml-10 font-extrabold lg:text-4xl">
               {listing.name}
             </h1>
+            <span className="text-[20px]  ml-10">${listing.price}</span>
             <select
               name="size"
               id="size"

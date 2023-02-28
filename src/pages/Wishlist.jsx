@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import {
   collection,
   getDocs,
@@ -48,6 +49,11 @@ function Wishlist() {
 
   return (
     <div>
+      <div>
+        <Link to="/shop" className="btn m-5">
+          Back To Shop
+        </Link>
+      </div>
       <header>
         <h1 className="text-center p-5 text-4xl lg:p-10 lg:text-6xl">
           Wishlist
