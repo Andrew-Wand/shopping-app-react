@@ -85,7 +85,7 @@ function Shop({ handleAddToCart, category, setCategory, gender, setGender }) {
             <div className="divider lg:w-6/12 lg:ml-[25%]">
               <IoShirtSharp className="text-4xl" />
             </div>
-            <ul className="lg:grid lg:grid-cols-3 lg:mx-48">
+            <ul className="lg:grid lg:grid-cols-3 lg:mx-[20%]">
               {listings?.map((e, listing) => {
                 if (e.data.gender !== gender) {
                   return;

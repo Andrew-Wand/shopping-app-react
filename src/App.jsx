@@ -11,7 +11,7 @@ import Wishlist from "./pages/Wishlist";
 import SingleItem from "./pages/SingleItem";
 import Footer from "./components/Footer";
 import Checkout from "./pages/Checkout";
-
+import "animate.css";
 import useScrollPosition from "./hooks/useScrollPosition";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Link } from "react-router-dom";

@@ -63,7 +63,7 @@ function ShopItem({
   }, []);
 
   return (
-    <li className="m-10 card my-28">
+    <li className="m-10 card my-[6rem] animate__animated animate__fadeIn animate__slow">
       <Link to={`/shop/${e.category}/${targetId}`}>
         <img src={e.image} alt={`${e.name}`} className="w-full" />
       </Link>
@@ -76,7 +76,7 @@ function ShopItem({
       <div>
         <button
           onClick={handleAddToWishlist}
-          className="absolute text-4xl right-10 top-5"
+          className="absolute text-4xl right-[10%] top-[5%]"
         >
           {!inWishlist ? <FaRegHeart /> : <FaHeart />}
         </button>

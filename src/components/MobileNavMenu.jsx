@@ -34,18 +34,22 @@ function MobileNavMenu({
     if (selection === "tshirt") {
       setCategory("tshirt");
       setDrawerActive(false);
+      document.querySelector("body").classList.remove("disable-scroll");
     }
     if (selection === "shirt") {
       setCategory("shirt");
       setDrawerActive(false);
+      document.querySelector("body").classList.remove("disable-scroll");
     }
     if (selection === "sweater") {
       setCategory("sweater");
       setDrawerActive(false);
+      document.querySelector("body").classList.remove("disable-scroll");
     }
     if (selection === "jacket") {
       setCategory("jacket");
       setDrawerActive(false);
+      document.querySelector("body").classList.remove("disable-scroll");
     }
   };
 

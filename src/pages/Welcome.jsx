@@ -150,15 +150,43 @@ function Welcome({ gender, setGender, setCategory, category }) {
                 data-aos-duration="1500"
                 data-aos="fade"
                 data-aos-once="true"
-                data-aos-anchor-placement="top-center"
-                data-aos-offset="200"
+                // data-aos-anchor-placement="top-center"
+                // data-aos-offset="200"
               />
             </figure>
           </div>
         </div>
-        <div className="divider my-16">
-          <IoShirtSharp className="text-5xl text-gray-500" />
-        </div>
+
+        <div className="divider"></div>
+        {/* 
+        <div className="top flex items-center justify-between w-full">
+          <div className="left flex flex-col max-w-[50%] justify-center p-5 items-start text-lg lg:text-3xl">
+            <p
+              data-aos-duration="1500"
+              data-aos="fade-right"
+              data-aos-once="true"
+              data-aos-anchor-placement="top-center"
+            >
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut sequi,
+              voluptate veniam, ratione voluptatum.
+            </p>
+          </div>
+          <div className="right h-full w-6/12 lg:h-6/12 lg:w-[30%]">
+            <figure>
+              <img
+                src={ModelMen}
+                alt="Men's Model"
+                className="overflow-hidden object-cover w-[15rem] h-full object-center lg:w-full "
+                data-aos-duration="1500"
+                data-aos="fade"
+                data-aos-once="true"
+                data-aos-anchor-placement="center-top"
+                // data-aos-offset="300"
+              />
+            </figure>
+          </div>
+        </div> */}
+
         <div className="bottom flex items-center justify-between w-full">
           <div className="left h-full w-6/12 lg:w-[28%]">
             <figure>
@@ -169,16 +197,13 @@ function Welcome({ gender, setGender, setCategory, category }) {
                 data-aos-duration="1500"
                 data-aos="fade"
                 data-aos-once="true"
-                data-aos-anchor-placement="top-center"
+                // data-aos-offset="200"
+                // data-aos-anchor-placement="center-top"
               />
             </figure>
           </div>
           <div className="right flex flex-col max-w-[50%] justify-center p-5 items-start text-lg lg:text-3xl">
-            <p
-              data-aos-duration="1500"
-              data-aos="fade-left"
-              data-aos-once="true"
-            >
+            <p>
               Lorem ipsum dolor, sit amet consectetur adipisicing elit.
               Excepturi voluptatibus tempora.
             </p>
@@ -188,25 +213,16 @@ function Welcome({ gender, setGender, setCategory, category }) {
 
       {/* INFO SECTION */}
       <section className="text-center lg:p-10">
-        <h1
-          className="text-3xl m-12 uppercase font-bold"
-          data-aos-duration="1200"
-          data-aos="fade"
-          data-aos-once="true"
-          data-aos-anchor-placement="top-bottom"
-          data-aos-delay="50"
-        >
-          Who we are
-        </h1>
+        <h1 className="text-3xl m-12 uppercase font-bold">Who we are</h1>
         <div className="lg:flex lg:justify-between lg:mt-32">
-          <div>
-            <div
-              data-aos-duration="1200"
-              data-aos="fade"
-              data-aos-once="true"
-              data-aos-anchor-placement="top-bottom"
-              data-aos-delay="50"
-            >
+          <div
+            data-aos="fade"
+            data-aos-once="true"
+            data-aos-anchor-placement="top-center"
+            data-aos-delay="50"
+            data-aos-duration="1500"
+          >
+            <div>
               <div className="avatar">
                 <div className="rounded-full h-[15rem] w-[15rem]">
                   <img src={InfoPic1} alt="Pic of clothes" />
@@ -226,11 +242,11 @@ function Welcome({ gender, setGender, setCategory, category }) {
           </div>
           <div
             className="mt-16 bg-base-300 lg:bg-base-100 lg:mt-0"
-            data-aos-duration="1200"
             data-aos="fade"
             data-aos-once="true"
-            data-aos-anchor-placement="top-bottom"
-            data-aos-delay="150"
+            data-aos-anchor-placement="top-center"
+            data-aos-delay="100"
+            data-aos-duration="1500"
           >
             <div className="h-[35rem]">
               <div className="avatar mt-10 lg:mt-0">
@@ -252,11 +268,11 @@ function Welcome({ gender, setGender, setCategory, category }) {
           </div>
           <div
             className="mt-8 lg:mt-0"
-            data-aos-duration="1200"
             data-aos="fade"
             data-aos-once="true"
-            data-aos-anchor-placement="top-bottom"
-            data-aos-delay="250"
+            data-aos-anchor-placement="top-center"
+            data-aos-delay="150"
+            data-aos-duration="1500"
           >
             <div className="h-[35rem]">
               <div className="avatar mt-10 lg:mt-0">
