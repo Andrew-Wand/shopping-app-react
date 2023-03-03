@@ -55,15 +55,6 @@ function Shop({ handleAddToCart, category, setCategory, gender, setGender }) {
 
   return (
     <div>
-      {/* <header className="hidden lg:block">
-        <ShopNav
-          category={category}
-          setCategory={setCategory}
-          gender={gender}
-          setGender={setGender}
-        />
-      </header> */}
-
       {loading ? (
         <Loading />
       ) : listings && listings.length > 0 ? (

@@ -11,6 +11,7 @@ import Wishlist from "./pages/Wishlist";
 import SingleItem from "./pages/SingleItem";
 import Footer from "./components/Footer";
 import Checkout from "./pages/Checkout";
+import Subscribe from "./pages/Subscribe";
 import "animate.css";
 import useScrollPosition from "./hooks/useScrollPosition";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -72,6 +73,7 @@ function App() {
           <Route path="/sign-up" element={<SignUp />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/subscribe" element={<Subscribe />} />
         </Routes>
         <Footer />
       </Router>

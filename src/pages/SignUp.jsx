@@ -57,49 +57,74 @@ function SignUp() {
     <>
       <div>
         <header>
-          <p>Sign Up</p>
+          <p className="text-center text-4xl m-5 lg:text-5xl lg:m-10">
+            Sign Up
+          </p>
         </header>
 
-        <form onSubmit={onSubmit}>
-          <input
-            type="text"
-            placeholder="Name"
-            id="name"
-            value={name}
-            onChange={onChange}
-          />
-
-          <input
-            type="email"
-            placeholder="Email"
-            id="email"
-            value={email}
-            onChange={onChange}
-          />
-
-          <div>
-            <input
-              type={showPassword ? "text" : "password"}
-              id="password"
-              value={password}
-              onChange={onChange}
-              placeholder="Password"
-            />
-            <p onClick={() => setShowPassword((prevState) => !prevState)}>
-              Show Password
-            </p>
+        <form
+          onSubmit={onSubmit}
+          className="flex flex-col items-left p-5 lg:items-center"
+        >
+          <div className="form-control">
+            <label className="input-group">
+              <span>Name</span>
+              <input
+                className="input input-bordered"
+                type="text"
+                placeholder="Name"
+                id="name"
+                value={name}
+                onChange={onChange}
+                required
+              />
+            </label>
           </div>
 
-          <Link to="forgot-password">Forgot Password</Link>
-
-          <div>
-            <button>Sign Up</button>
+          <div className="form-control my-5">
+            <label className="input-group">
+              <span>Email</span>
+              <input
+                className="input input-bordered"
+                type="email"
+                placeholder="Email"
+                id="email"
+                value={email}
+                onChange={onChange}
+                required
+              />
+            </label>
           </div>
+
+          <div className="form-control">
+            <label className="input-group">
+              <span>Password</span>
+              <input
+                className="input input-bordered"
+                type={showPassword ? "text" : "password"}
+                id="password"
+                value={password}
+                onChange={onChange}
+                placeholder="Password"
+                required
+              />
+            </label>
+          </div>
+          <p
+            className="cursor-pointer"
+            onClick={() => setShowPassword((prevState) => !prevState)}
+          >
+            Show Password
+          </p>
+
+          <div className="flex flex-col my-10">
+            <button className="btn">Sign Up</button>
+          </div>
+          <OAuth />
+          <Link to="/sign-in" className="btn btn-outline btn-info  my-10 ">
+            Sign Up Instead
+          </Link>
         </form>
-
-        <OAuth />
-
-        <Link to="/sign-in">Sign In Instead</Link>
       </div>
     </>
   );

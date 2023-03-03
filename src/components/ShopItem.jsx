@@ -41,8 +41,8 @@ function ShopItem({
   useEffect(() => {
     setTimeout(() => {
       setWishlistAlert(false);
-    }, 2000);
-  }, []);
+    }, 4000);
+  }, [handleAddToWishlist]);
 
   // Delete from wishlist after click
   const onDeleteFromWishlist = async (wishlistId) => {

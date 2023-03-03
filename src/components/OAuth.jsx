@@ -32,14 +32,18 @@ function OAuth() {
   };
 
   return (
-    <div className="m-5">
-      <p>
-        Sign {location.pathname === "/sign-up" ? "up" : "in"} with{" "}
+    <>
+      <div className=" text-center ">
+        <p className="">
+          Sign {location.pathname === "/sign-up" ? "up" : "in"} with
+        </p>
+      </div>
+      <div className="text-center">
         <button onClick={onGoogleClick}>
-          <img src={googleIcon} alt="google" className="w-6/12" />
+          <img src={googleIcon} alt="google" className="w-4/12 ml-16" />
         </button>
-      </p>
-    </div>
+      </div>
+    </>
   );
 }
 

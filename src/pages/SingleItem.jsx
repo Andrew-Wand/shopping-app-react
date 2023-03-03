@@ -61,8 +61,8 @@ function SingleItem() {
   useEffect(() => {
     setTimeout(() => {
       setAddAnim(false);
-    }, 5000);
-  }, []);
+    }, 4000);
+  }, [handleAddToCart]);
 
   // Sets the size for select
   const onSizeChange = (e) => {

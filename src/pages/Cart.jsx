@@ -98,6 +98,11 @@ function Cart() {
                 Checkout
               </Link>
             </div>
+            <div>
+              <Link to="/shop" className="btn m-5">
+                Back To Shop
+              </Link>
+            </div>
           </main>
         </>
       ) : (

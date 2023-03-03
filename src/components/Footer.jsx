@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function Footer() {
   return (
     <footer className="footer p-10 bg-base-300 text-base-content">
@@ -8,8 +10,6 @@ function Footer() {
         </span>
         <a className="link link-hover">About us</a>
         <a className="link link-hover">Contact</a>
-        <a className="link link-hover">Jobs</a>
-        <a className="link link-hover">Press kit</a>
       </div>
       <div>
         <span className="uppercase font-bold">Newsletter</span>
@@ -19,13 +19,16 @@ function Footer() {
           </label>
           <div className="relative">
             <input
-              type="text"
+              type="email"
               placeholder="username@site.com"
               className="input input-bordered w-full pr-16"
             />
-            <button className="btn btn-primary absolute top-0 right-0 rounded-l-none">
+            <Link
+              to="/subscribe"
+              className="btn btn-primary absolute top-0 right-0 rounded-l-none"
+            >
               Subscribe
-            </button>
+            </Link>
           </div>
         </div>
       </div>

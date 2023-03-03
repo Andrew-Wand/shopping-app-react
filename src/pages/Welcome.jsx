@@ -18,6 +18,7 @@ function Welcome({ gender, setGender, setCategory, category }) {
   const [featured, setFeatured] = useState(null);
 
   // Initialize animation on scroll
+
   useEffect(() => {
     AOS.init();
   }, []);
@@ -68,7 +69,7 @@ function Welcome({ gender, setGender, setCategory, category }) {
           <img
             src={WelcomePicture}
             alt="Store Picture"
-            className="h-[30rem] brightness-[64.5%] welcome-img lg:w-full lg:h-[48rem]"
+            className="h-[40rem] brightness-[64.5%] welcome-img lg:w-full lg:h-[50rem]"
           />
         </figure>
 
@@ -96,24 +97,17 @@ function Welcome({ gender, setGender, setCategory, category }) {
         <div className="mt-10">
           <h1
             className="text-center text-3xl lg:text-5xl lg:m-28"
-            data-aos-duration="1500"
-            data-aos="fade-left"
+            data-aos="fade-up"
             data-aos-once="true"
           >
             Featured Items
           </h1>
-          <div
-            className="divider"
-            data-aos-duration="1500"
-            data-aos="fade"
-            data-aos-once="true"
-          >
+          <div className="divider">
             <IoShirtSharp className="text-5xl text-gray-500" />
           </div>
           <div
             className="featured-cards grid grid-cols-2 gap-10 p-5 lg:flex lg:m-10"
-            data-aos-duration="1500"
-            data-aos="fade"
+            data-aos="fade-up"
             data-aos-once="true"
           >
             {featured?.map((feature) => (
@@ -128,85 +122,64 @@ function Welcome({ gender, setGender, setCategory, category }) {
       </section>
 
       {/* PICTURE SECTION */}
-      <section className="mt-32 bg-base-300 w-full h-full">
-        <div className="top flex items-center justify-between w-full">
-          <div className="left flex flex-col max-w-[50%] justify-center p-5 items-start text-lg lg:text-3xl">
-            <p
-              data-aos-duration="1500"
-              data-aos="fade-right"
-              data-aos-once="true"
-              data-aos-anchor-placement="top-center"
-            >
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut sequi,
-              voluptate veniam, ratione voluptatum.
-            </p>
-          </div>
-          <div className="right h-full w-6/12 lg:h-6/12 lg:w-[30%]">
-            <figure>
-              <img
-                src={ModelMen}
-                alt="Men's Model"
-                className="overflow-hidden object-cover w-[15rem] h-full object-center lg:w-full "
-                data-aos-duration="1500"
-                data-aos="fade"
-                data-aos-once="true"
-                // data-aos-anchor-placement="top-center"
-                // data-aos-offset="200"
-              />
-            </figure>
-          </div>
-        </div>
 
-        <div className="divider"></div>
-        {/* 
-        <div className="top flex items-center justify-between w-full">
-          <div className="left flex flex-col max-w-[50%] justify-center p-5 items-start text-lg lg:text-3xl">
-            <p
-              data-aos-duration="1500"
-              data-aos="fade-right"
-              data-aos-once="true"
-              data-aos-anchor-placement="top-center"
-            >
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut sequi,
-              voluptate veniam, ratione voluptatum.
-            </p>
+      <section>
+        <div className="wrapper mt-32 bg-base-300">
+          {/* Top Section */}
+          <div
+            className="top flex flex-col-reverse lg:flex-row items-center lg:justify-between w-full  lg:p-10 border-b-[1px] border-black border-solid"
+            data-aos="fade-up"
+            data-aos-once="true"
+            data-aos-anchor-placement="top-top"
+          >
+            <div className="left lg:max-w-[50%] lg:justify-center lg:p-5 m-5  items-start text-md lg:text-3xl">
+              <h1 className="text-center text-3xl font-bold lg:mb-10 my-8 lg:text-5xl">
+                High Fashion
+              </h1>
+              <p className="lg:ml-20 m-5 ml-12">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut
+                sequi, voluptate veniam, ratione voluptatum. Lorem ipsum dolor
+                sit, amet consectetur adipisicing elit. Magni praesentium aut
+                aspernatur adipisci!
+              </p>
+            </div>
+            <div className="right h-full lg:h-6/12 lg:w-[30%] lg:m-5 shadow-xl">
+              <figure>
+                <img
+                  src={ModelMen}
+                  alt="Men's Model"
+                  className="overflow-hidden object-cover w-[15rem] h-full object-center lg:w-full rounded-md drop-shadow-lg mt-2"
+                />
+              </figure>
+            </div>
           </div>
-          <div className="right h-full w-6/12 lg:h-6/12 lg:w-[30%]">
-            <figure>
-              <img
-                src={ModelMen}
-                alt="Men's Model"
-                className="overflow-hidden object-cover w-[15rem] h-full object-center lg:w-full "
-                data-aos-duration="1500"
-                data-aos="fade"
-                data-aos-once="true"
-                data-aos-anchor-placement="center-top"
-                // data-aos-offset="300"
-              />
-            </figure>
-          </div>
-        </div> */}
 
-        <div className="bottom flex items-center justify-between w-full">
-          <div className="left h-full w-6/12 lg:w-[28%]">
-            <figure>
-              <img
-                src={ModelWomen}
-                alt="Women's Model"
-                className="overflow-hidden object-cover w-[15rem] h-full object-center lg:w-full"
-                data-aos-duration="1500"
-                data-aos="fade"
-                data-aos-once="true"
-                // data-aos-offset="200"
-                // data-aos-anchor-placement="center-top"
-              />
-            </figure>
-          </div>
-          <div className="right flex flex-col max-w-[50%] justify-center p-5 items-start text-lg lg:text-3xl">
-            <p>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-              Excepturi voluptatibus tempora.
-            </p>
+          {/* Bottom section */}
+          <div
+            className="bottom flex flex-col lg:flex-row items-center lg:justify-between w-full lg:p-10 "
+            data-aos="fade-up"
+            data-aos-once="true"
+            data-aos-anchor-placement="top-top"
+          >
+            <div className="left h-full w-6/12 lg:w-[28%] m-5 shadow-xl">
+              <figure>
+                <img
+                  src={ModelWomen}
+                  alt="Women's Model"
+                  className="overflow-hidden object-cover w-[15rem] h-full object-center lg:w-full rounded-md drop-shadow-lg"
+                />
+              </figure>
+            </div>
+            <div className="right flex flex-col lg:max-w-[50%] lg:justify-center lg:p-5 text-md lg:text-3xl m-5">
+              <h1 className="text-center text-3xl font-bold lg:mb-10 mb-8 my-5 lg:text-5xl">
+                Everyday Clothing
+              </h1>
+              <p className="lg:ml-20 m-5 ml-14">
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                Excepturi voluptatibus tempora. Lorem ipsum dolor sit amet
+                consectetur adipisicing elit.
+              </p>
+            </div>
           </div>
         </div>
       </section>

@@ -49,11 +49,6 @@ function Wishlist() {
 
   return (
     <div>
-      <div>
-        <Link to="/shop" className="btn m-5">
-          Back To Shop
-        </Link>
-      </div>
       <header>
         <h1 className="text-center p-5 text-4xl lg:p-10 lg:text-6xl">
           Wishlist
@@ -68,6 +63,11 @@ function Wishlist() {
         <Loading />
       ) : wishlist && wishlist.length > 0 ? (
         <main>
+          <div>
+            <Link to="/shop" className="btn m-5">
+              Back To Shop
+            </Link>
+          </div>
           <ul className="lg:mx-[30rem]">
             {wishlist.map((wishItem) => (
               <WishlistItem
