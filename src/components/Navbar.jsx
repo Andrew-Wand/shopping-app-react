@@ -127,27 +127,15 @@ function Navbar({ gender, setGender, category, setCategory, scrollPosition }) {
           </Link>
         </div>
         <div className="flex-none">
-          <div className="dropdown dropdown-end mr-1">
+          <div className="tooltip tooltip-bottom mr-1" data-tip="Cart">
             <label tabIndex={0} className="btn btn-ghost btn-circle ">
               <Link to="/cart">
                 <BsFillBagFill className="text-3xl" />
               </Link>
             </label>
-            {/* <div
-              tabIndex={0}
-              className="mt-3 card card-compact dropdown-content w-52 bg-base-100 shadow"
-            >
-              <div className="card-body">
-                <div className="card-actions">
-                  <Link to="/cart" className="btn btn-primary btn-block">
-                    View cart
-                  </Link>
-                </div>
-              </div>
-            </div> */}
           </div>
 
-          <div className="dropdown-end mr-1">
+          <div className="tooltip tooltip-bottom mr-1" data-tip="Wishlist">
             <label tabIndex={0} className="btn btn-ghost btn-circle ">
               <Link to="/wishlist">
                 <FiHeart className="text-3xl" />

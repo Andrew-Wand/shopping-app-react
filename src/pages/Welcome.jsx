@@ -95,100 +95,94 @@ function Welcome({ gender, setGender, setCategory, category }) {
 
       {/* FEATURED SECTION */}
       <section>
-        <Fade up>
-          <div className="mt-10">
-            <h1
-              className="text-center text-3xl lg:text-5xl lg:m-28"
-              // data-aos="fade-up"
-              // data-aos-once="true"
-            >
+        <div className="mt-10">
+          <Fade up>
+            <h1 className="text-center text-3xl lg:text-5xl lg:m-28">
               Featured Items
             </h1>
+          </Fade>
+
+          <Fade up>
             <div className="divider">
               <IoShirtSharp className="text-5xl text-gray-500" />
             </div>
-            <div
-              className="featured-cards grid grid-cols-2 gap-10 p-5 lg:flex lg:m-10"
-              // data-aos="fade-up"
-              // data-aos-once="true"
-            >
-              {featured?.map((feature) => (
-                <FeaturedCard
-                  featuredItems={feature.data}
-                  id={feature.id}
-                  key={feature.id}
-                />
-              ))}
-            </div>
+          </Fade>
+
+          <div className="featured-cards grid grid-cols-2 gap-10 p-5 lg:flex lg:m-10">
+            {featured?.map((feature) => (
+              <FeaturedCard
+                featuredItems={feature.data}
+                id={feature.id}
+                key={feature.id}
+              />
+            ))}
           </div>
-        </Fade>
+        </div>
       </section>
 
       {/* PICTURE SECTION */}
 
       <section>
-        <div className="wrapper mt-32 bg-base-300">
+        <div className="wrapper mt-32">
           {/* Top Section */}
-          <div
-            className="top flex flex-col-reverse lg:flex-row items-center lg:justify-between w-full  lg:p-10 border-b-[1px] border-black border-solid"
-            data-aos="fade-up"
-            data-aos-once="true"
-            data-aos-anchor-placement="top-top"
-          >
-            <div className="left lg:max-w-[50%] lg:justify-center lg:p-5 m-5  items-start text-md lg:text-3xl">
-              <h1 className="text-center text-3xl font-bold lg:mb-10 my-8 lg:text-5xl">
-                High Fashion
-              </h1>
-              <p className="lg:ml-20 m-5 ml-12">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut
-                sequi, voluptate veniam, ratione voluptatum. Lorem ipsum dolor
-                sit, amet consectetur adipisicing elit. Magni praesentium aut
-                aspernatur adipisci!
-              </p>
+          <div className="top flex flex-col-reverse lg:flex-row items-center lg:justify-between w-full  lg:p-20 bg-base-200">
+            <div className="left lg:max-w-[50%] lg:justify-center lg:p-5 m-5 items-start text-md lg:text-3xl">
+              <Fade up>
+                <h1 className="text-center text-3xl font-bold lg:mb-10 my-8 lg:text-5xl">
+                  High Fashion
+                </h1>
+                <p className="lg:ml-20 m-5 ml-12">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut
+                  sequi, voluptate veniam, ratione voluptatum. Lorem ipsum dolor
+                  sit, amet consectetur adipisicing elit. Magni praesentium aut
+                  aspernatur adipisci!
+                </p>
+              </Fade>
             </div>
             <div className="right h-full lg:h-6/12 lg:w-[30%] lg:m-5 shadow-xl">
               <figure>
-                <img
-                  src={ModelMen}
-                  alt="Men's Model"
-                  className="overflow-hidden object-cover w-[15rem] h-full object-center lg:w-full rounded-md drop-shadow-lg mt-2"
-                />
+                <Fade up>
+                  <img
+                    src={ModelMen}
+                    alt="Men's Model"
+                    className="overflow-hidden object-cover w-[15rem] h-full object-center lg:w-full rounded-md drop-shadow-lg mt-2"
+                  />
+                </Fade>
               </figure>
             </div>
           </div>
 
           {/* Bottom section */}
-          <div
-            className="bottom flex flex-col lg:flex-row items-center lg:justify-between w-full lg:p-10 "
-            data-aos="fade-up"
-            data-aos-once="true"
-            data-aos-anchor-placement="top-top"
-          >
+          <div className="bottom flex flex-col lg:flex-row items-center lg:justify-between w-full lg:p-20 ">
             <div className="left h-full w-6/12 lg:w-[28%] m-5 shadow-xl">
               <figure>
-                <img
-                  src={ModelWomen}
-                  alt="Women's Model"
-                  className="overflow-hidden object-cover w-[15rem] h-full object-center lg:w-full rounded-md drop-shadow-lg"
-                />
+                <Fade up>
+                  <img
+                    src={ModelWomen}
+                    alt="Women's Model"
+                    className="overflow-hidden object-cover w-[15rem] h-full object-center lg:w-full rounded-md drop-shadow-lg"
+                  />
+                </Fade>
               </figure>
             </div>
             <div className="right flex flex-col lg:max-w-[50%] lg:justify-center lg:p-5 text-md lg:text-3xl m-5">
-              <h1 className="text-center text-3xl font-bold lg:mb-10 mb-8 my-5 lg:text-5xl">
-                Everyday Clothing
-              </h1>
-              <p className="lg:ml-20 m-5 ml-14">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                Excepturi voluptatibus tempora. Lorem ipsum dolor sit amet
-                consectetur adipisicing elit.
-              </p>
+              <Fade up>
+                <h1 className="text-center text-3xl font-bold lg:mb-10 mb-8 my-5 lg:text-5xl">
+                  Everyday Clothing
+                </h1>
+                <p className="lg:ml-20 m-3 ml-14">
+                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                  Excepturi voluptatibus tempora. Lorem ipsum dolor sit amet
+                  consectetur adipisicing elit.
+                </p>
+              </Fade>
             </div>
           </div>
         </div>
       </section>
 
       {/* INFO SECTION */}
-      <section className="text-center lg:p-10">
+      <section className="text-center lg:p-10 lg:bg-base-200 bg-base-200">
         <h1 className="text-3xl m-12 uppercase font-bold">Who we are</h1>
         <div className="lg:flex lg:justify-between lg:mt-32">
           <div
@@ -217,7 +211,7 @@ function Welcome({ gender, setGender, setCategory, category }) {
             </div>
           </div>
           <div
-            className="mt-16 bg-base-300 lg:bg-base-100 lg:mt-0"
+            className="mt-16   lg:mt-0"
             data-aos="fade"
             data-aos-once="true"
             data-aos-anchor-placement="top-center"
