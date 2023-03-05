@@ -13,6 +13,8 @@ function SingleItem() {
   const [itemQuantity, setItemQuantity] = useState(1);
   const [addAnim, setAddAnim] = useState(false);
 
+  let newId = listing?.name;
+
   const navigate = useNavigate();
   const params = useParams();
   const auth = getAuth();
@@ -37,14 +39,17 @@ function SingleItem() {
 
   // Adding items to cart
   const handleAddToCart = async () => {
-    try {
-      // Add to cartitems collection
-      const itemId = params.listingId;
-      const cartClick = listing;
+    // Add to cartitems collection
+    const itemId = params.listingId;
+    const cartClick = listing;
 
-      const docRef = doc(db, "cartItems", itemId);
-      const docSnap = await getDoc(docRef);
+    const docRef = doc(db, "cartItems", itemId);
+    const docSnap = await getDoc(docRef);
 
+    const docRefDuplicate = doc(db, "cartItems", newId);
+    const docSnapDuplicate = await getDoc(docRefDuplicate);
+
+    if (!docSnap.exists()) {
       const dataCopy = {
         ...cartClick,
         quantity: itemQuantity,
@@ -53,8 +58,27 @@ function SingleItem() {
 
       setAddAnim(true);
       await setDoc(doc(db, "cartItems", itemId), dataCopy);
-    } catch (error) {
-      console.log(error);
+
+      // Same item different size
+    } else if (docSnap.exists() && docSnap.data().size !== size) {
+      const dataCopy = {
+        ...cartClick,
+        quantity: itemQuantity,
+        size: size,
+      };
+
+      await setDoc(doc(db, "cartItems", newId), dataCopy);
+      await updateDoc(doc(db, "cartItems", newId), {
+        quantity: itemQuantity + docSnapDuplicate.data().quantity,
+      });
+      setAddAnim(true);
+
+      // Same item same size
+    } else {
+      await updateDoc(doc(db, "cartItems", params.listingId), {
+        quantity: itemQuantity + docSnap.data().quantity,
+      });
+      setAddAnim(true);
     }
   };
 

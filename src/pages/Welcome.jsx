@@ -12,6 +12,7 @@ import InfoPic3 from "../assets/other/info-pic-3.jpg";
 import { IoShirtSharp } from "react-icons/io5";
 import "aos/dist/aos.css";
 import AOS from "aos";
+import Fade from "react-reveal/Fade";
 
 function Welcome({ gender, setGender, setCategory, category }) {
   const navigate = useNavigate();
@@ -94,31 +95,33 @@ function Welcome({ gender, setGender, setCategory, category }) {
 
       {/* FEATURED SECTION */}
       <section>
-        <div className="mt-10">
-          <h1
-            className="text-center text-3xl lg:text-5xl lg:m-28"
-            data-aos="fade-up"
-            data-aos-once="true"
-          >
-            Featured Items
-          </h1>
-          <div className="divider">
-            <IoShirtSharp className="text-5xl text-gray-500" />
+        <Fade up>
+          <div className="mt-10">
+            <h1
+              className="text-center text-3xl lg:text-5xl lg:m-28"
+              // data-aos="fade-up"
+              // data-aos-once="true"
+            >
+              Featured Items
+            </h1>
+            <div className="divider">
+              <IoShirtSharp className="text-5xl text-gray-500" />
+            </div>
+            <div
+              className="featured-cards grid grid-cols-2 gap-10 p-5 lg:flex lg:m-10"
+              // data-aos="fade-up"
+              // data-aos-once="true"
+            >
+              {featured?.map((feature) => (
+                <FeaturedCard
+                  featuredItems={feature.data}
+                  id={feature.id}
+                  key={feature.id}
+                />
+              ))}
+            </div>
           </div>
-          <div
-            className="featured-cards grid grid-cols-2 gap-10 p-5 lg:flex lg:m-10"
-            data-aos="fade-up"
-            data-aos-once="true"
-          >
-            {featured?.map((feature) => (
-              <FeaturedCard
-                featuredItems={feature.data}
-                id={feature.id}
-                key={feature.id}
-              />
-            ))}
-          </div>
-        </div>
+        </Fade>
       </section>
 
       {/* PICTURE SECTION */}
