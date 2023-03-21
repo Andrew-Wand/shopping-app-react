@@ -122,7 +122,7 @@ function SignUp() {
           </div>
           <OAuth />
           <Link to="/sign-in" className="btn btn-outline btn-info  my-10 ">
-            Sign Up Instead
+            Sign In Instead
           </Link>
         </form>
       </div>
