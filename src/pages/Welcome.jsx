@@ -12,7 +12,6 @@ import InfoPic3 from "../assets/other/info-pic-3.jpg";
 import { IoShirtSharp } from "react-icons/io5";
 import "aos/dist/aos.css";
 import AOS from "aos";
-import Fade from "react-reveal/Fade";
 
 function Welcome({ gender, setGender, setCategory, category }) {
   const navigate = useNavigate();
@@ -96,17 +95,13 @@ function Welcome({ gender, setGender, setCategory, category }) {
       {/* FEATURED SECTION */}
       <section>
         <div className="mt-10">
-          <Fade up>
-            <h1 className="text-center text-3xl lg:text-5xl lg:m-28">
-              Featured Items
-            </h1>
-          </Fade>
+          <h1 className="text-center text-3xl lg:text-5xl lg:m-28">
+            Featured Items
+          </h1>
 
-          <Fade up>
-            <div className="divider">
-              <IoShirtSharp className="text-5xl text-gray-500" />
-            </div>
-          </Fade>
+          <div className="divider">
+            <IoShirtSharp className="text-5xl text-gray-500" />
+          </div>
 
           <div className="featured-cards grid grid-cols-2 gap-10 p-5 lg:flex lg:m-10">
             {featured?.map((feature) => (
@@ -127,27 +122,23 @@ function Welcome({ gender, setGender, setCategory, category }) {
           {/* Top Section */}
           <div className="top flex flex-col-reverse lg:flex-row items-center lg:justify-between w-full  lg:p-20 bg-base-200">
             <div className="left lg:max-w-[50%] lg:justify-center lg:p-5 m-5 items-start text-md lg:text-3xl">
-              <Fade up>
-                <h1 className="text-center text-3xl font-bold lg:mb-10 my-8 lg:text-5xl">
-                  High Fashion
-                </h1>
-                <p className="lg:ml-20 m-5 ml-12">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut
-                  sequi, voluptate veniam, ratione voluptatum. Lorem ipsum dolor
-                  sit, amet consectetur adipisicing elit. Magni praesentium aut
-                  aspernatur adipisci!
-                </p>
-              </Fade>
+              <h1 className="text-center text-3xl font-bold lg:mb-10 my-8 lg:text-5xl">
+                High Fashion
+              </h1>
+              <p className="lg:ml-20 m-5 ml-12">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut
+                sequi, voluptate veniam, ratione voluptatum. Lorem ipsum dolor
+                sit, amet consectetur adipisicing elit. Magni praesentium aut
+                aspernatur adipisci!
+              </p>
             </div>
             <div className="right h-full lg:h-6/12 lg:w-[30%] lg:m-5 shadow-xl">
               <figure>
-                <Fade up>
-                  <img
-                    src={ModelMen}
-                    alt="Men's Model"
-                    className="overflow-hidden object-cover w-[15rem] h-full object-center lg:w-full rounded-md drop-shadow-lg mt-2"
-                  />
-                </Fade>
+                <img
+                  src={ModelMen}
+                  alt="Men's Model"
+                  className="overflow-hidden object-cover w-[15rem] h-full object-center lg:w-full rounded-md drop-shadow-lg mt-2"
+                />
               </figure>
             </div>
           </div>
@@ -156,26 +147,22 @@ function Welcome({ gender, setGender, setCategory, category }) {
           <div className="bottom flex flex-col lg:flex-row items-center lg:justify-between w-full lg:p-20 ">
             <div className="left h-full w-6/12 lg:w-[28%] m-5 shadow-xl">
               <figure>
-                <Fade up>
-                  <img
-                    src={ModelWomen}
-                    alt="Women's Model"
-                    className="overflow-hidden object-cover w-[15rem] h-full object-center lg:w-full rounded-md drop-shadow-lg"
-                  />
-                </Fade>
+                <img
+                  src={ModelWomen}
+                  alt="Women's Model"
+                  className="overflow-hidden object-cover w-[15rem] h-full object-center lg:w-full rounded-md drop-shadow-lg"
+                />
               </figure>
             </div>
             <div className="right flex flex-col lg:max-w-[50%] lg:justify-center lg:p-5 text-md lg:text-3xl m-5">
-              <Fade up>
-                <h1 className="text-center text-3xl font-bold lg:mb-10 mb-8 my-5 lg:text-5xl">
-                  Everyday Clothing
-                </h1>
-                <p className="lg:ml-20 m-3 ml-14">
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                  Excepturi voluptatibus tempora. Lorem ipsum dolor sit amet
-                  consectetur adipisicing elit.
-                </p>
-              </Fade>
+              <h1 className="text-center text-3xl font-bold lg:mb-10 mb-8 my-5 lg:text-5xl">
+                Everyday Clothing
+              </h1>
+              <p className="lg:ml-20 m-3 ml-14">
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                Excepturi voluptatibus tempora. Lorem ipsum dolor sit amet
+                consectetur adipisicing elit.
+              </p>
             </div>
           </div>
         </div>
