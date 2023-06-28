@@ -1,14 +1,14 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { collection, getDocs, query, limit, where } from "firebase/firestore";
-import WelcomePicture from "../assets/other/welcome-pic.jpg";
+import WelcomePicture from "../assets/other/welcome-pic.webp";
 import { db } from "../firebase.config";
 import FeaturedCard from "../components/FeaturedCard";
-import ModelMen from "../assets/other/model-men-1.jpg";
-import ModelWomen from "../assets/other/model-women-1.jpg";
-import InfoPic1 from "../assets/other/info-pic-1.jpg";
-import InfoPic2 from "../assets/other/info-pic-2.jpg";
-import InfoPic3 from "../assets/other/info-pic-3.jpg";
+import ModelMen from "../assets/other/model-men-1.webp";
+import ModelWomen from "../assets/other/model-women-1.webp";
+import InfoPic1 from "../assets/other/info-pic-1.webp";
+import InfoPic2 from "../assets/other/info-pic-2.webp";
+import InfoPic3 from "../assets/other/info-pic-3.webp";
 import { IoShirtSharp } from "react-icons/io5";
 import "aos/dist/aos.css";
 import AOS from "aos";
@@ -69,7 +69,7 @@ function Welcome({ gender, setGender, setCategory, category }) {
           <img
             src={WelcomePicture}
             alt="Store Picture"
-            className="h-[40rem] brightness-[64.5%] welcome-img lg:w-full lg:h-[50rem]"
+            className="h-[35rem] w-full brightness-[64.5%] welcome-img lg:w-full lg:h-[50rem]"
           />
         </figure>
 
@@ -233,7 +233,7 @@ function Welcome({ gender, setGender, setCategory, category }) {
           >
             <div className="h-[35rem]">
               <div className="avatar mt-10 lg:mt-0">
-                <div className="rounded-full h-[15rem] w-[15rem]">
+                <div className="rounded-full h-auto w-[15rem]">
                   <img src={InfoPic3} alt="Pic of clothes" />
                 </div>
               </div>
