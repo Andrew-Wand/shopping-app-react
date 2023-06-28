@@ -8,8 +8,12 @@ function Footer() {
         <span className="uppercase font-bold mb-0 lg:block hidden">
           Company
         </span>
-        <a className="link link-hover">About us</a>
-        <a className="link link-hover">Contact</a>
+        <a href="/" className="link link-hover">
+          About us
+        </a>
+        <a href="/" className="link link-hover">
+          Contact
+        </a>
       </div>
       <div>
         <span className="uppercase font-bold">Newsletter</span>

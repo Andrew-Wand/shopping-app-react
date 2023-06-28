@@ -69,7 +69,7 @@ function Welcome({ gender, setGender, setCategory, category }) {
           <img
             src={WelcomePicture}
             alt="Store Picture"
-            className="h-[35rem] w-full brightness-[64.5%] welcome-img lg:w-full lg:h-[50rem]"
+            className="h-[35rem] w-full brightness-[64.5%] welcome-img lg:w-full lg:h-auto"
           />
         </figure>
 
@@ -137,7 +137,7 @@ function Welcome({ gender, setGender, setCategory, category }) {
                 <img
                   src={ModelMen}
                   alt="Men's Model"
-                  className="overflow-hidden object-cover w-full h-auto object-center lg:w-full rounded-md drop-shadow-lg mt-2"
+                  className="overflow-hidden object-cover w-full h-auto object-center lg:w-full lg:h-auto rounded-md drop-shadow-lg mt-2"
                 />
               </figure>
             </div>
@@ -150,7 +150,7 @@ function Welcome({ gender, setGender, setCategory, category }) {
                 <img
                   src={ModelWomen}
                   alt="Women's Model"
-                  className="overflow-hidden object-cover h-auto w-full object-center lg:w-full rounded-md drop-shadow-lg"
+                  className="overflow-hidden object-cover h-auto w-full object-center lg:w-full lg:h-auto rounded-md drop-shadow-lg"
                 />
               </figure>
             </div>
