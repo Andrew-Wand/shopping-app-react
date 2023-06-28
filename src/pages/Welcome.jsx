@@ -132,12 +132,12 @@ function Welcome({ gender, setGender, setCategory, category }) {
                 aspernatur adipisci!
               </p>
             </div>
-            <div className="right h-full lg:h-6/12 lg:w-[30%] lg:m-5 shadow-xl">
+            <div className="right p-5 lg:h-6/12 lg:w-[30%] lg:m-5 ">
               <figure>
                 <img
                   src={ModelMen}
                   alt="Men's Model"
-                  className="overflow-hidden object-cover w-[15rem] h-full object-center lg:w-full rounded-md drop-shadow-lg mt-2"
+                  className="overflow-hidden object-cover w-full h-auto object-center lg:w-full rounded-md drop-shadow-lg mt-2"
                 />
               </figure>
             </div>
@@ -145,12 +145,12 @@ function Welcome({ gender, setGender, setCategory, category }) {
 
           {/* Bottom section */}
           <div className="bottom flex flex-col lg:flex-row items-center lg:justify-between w-full lg:p-20 ">
-            <div className="left h-full w-6/12 lg:w-[28%] m-5 shadow-xl">
+            <div className="left lg:w-[28%] m-5 ">
               <figure>
                 <img
                   src={ModelWomen}
                   alt="Women's Model"
-                  className="overflow-hidden object-cover w-[15rem] h-full object-center lg:w-full rounded-md drop-shadow-lg"
+                  className="overflow-hidden object-cover h-auto w-full object-center lg:w-full rounded-md drop-shadow-lg"
                 />
               </figure>
             </div>
@@ -182,7 +182,11 @@ function Welcome({ gender, setGender, setCategory, category }) {
             <div>
               <div className="avatar">
                 <div className="rounded-full h-[15rem] w-[15rem]">
-                  <img src={InfoPic1} alt="Pic of clothes" />
+                  <img
+                    className="w-full h-auto"
+                    src={InfoPic1}
+                    alt="Pic of clothes"
+                  />
                 </div>
               </div>
 
@@ -208,7 +212,11 @@ function Welcome({ gender, setGender, setCategory, category }) {
             <div className="h-[35rem]">
               <div className="avatar mt-10 lg:mt-0">
                 <div className="rounded-full h-[15rem] w-[15rem]">
-                  <img src={InfoPic2} alt="Pic of clothes" />
+                  <img
+                    className="h-auto w-full"
+                    src={InfoPic2}
+                    alt="Pic of clothes"
+                  />
                 </div>
               </div>
 
@@ -234,7 +242,11 @@ function Welcome({ gender, setGender, setCategory, category }) {
             <div className="h-[35rem]">
               <div className="avatar mt-10 lg:mt-0">
                 <div className="rounded-full h-auto w-[15rem]">
-                  <img src={InfoPic3} alt="Pic of clothes" />
+                  <img
+                    className="w-full h-auto"
+                    src={InfoPic3}
+                    alt="Pic of clothes"
+                  />
                 </div>
               </div>
 
