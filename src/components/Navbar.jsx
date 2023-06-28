@@ -82,8 +82,12 @@ function Navbar({ gender, setGender, category, setCategory, scrollPosition }) {
           <button
             className="btn btn-square btn-ghost swap swap-rotate"
             onClick={openDrawer}
+            aria-label="Opens the side bar menu to view clothing options by gender"
           >
-            <input type="checkbox" />
+            <input
+              type="checkbox"
+              aria-label="Opens the side bar menu to view clothing options by gender"
+            />
             {!drawerActive ? (
               <svg
                 className="swap-off fill-current"
@@ -129,7 +133,7 @@ function Navbar({ gender, setGender, category, setCategory, scrollPosition }) {
         <div className="flex-none">
           <div className="tooltip tooltip-bottom mr-1" data-tip="Cart">
             <label tabIndex={0} className="btn btn-ghost btn-circle ">
-              <Link to="/cart">
+              <Link to="/cart" aria-label="Click to view your cart.">
                 <BsFillBagFill className="text-3xl" />
               </Link>
             </label>
@@ -137,7 +141,7 @@ function Navbar({ gender, setGender, category, setCategory, scrollPosition }) {
 
           <div className="tooltip tooltip-bottom mr-1" data-tip="Wishlist">
             <label tabIndex={0} className="btn btn-ghost btn-circle ">
-              <Link to="/wishlist">
+              <Link to="/wishlist" aria-label="Click to view your wishlist.">
                 <FiHeart className="text-3xl" />
               </Link>
             </label>
