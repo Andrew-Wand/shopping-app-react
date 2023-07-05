@@ -66,13 +66,12 @@ function SignUp() {
           onSubmit={onSubmit}
           className="flex flex-col items-left p-5 lg:items-center"
         >
-          <div className="form-control">
+          <div className="form-control ml-5">
             <label className="input-group">
               <span>Name</span>
               <input
-                className="input input-bordered"
+                className="input input-bordered w-[15.5rem]"
                 type="text"
-                placeholder="Name"
                 id="name"
                 value={name}
                 onChange={onChange}
@@ -81,13 +80,12 @@ function SignUp() {
             </label>
           </div>
 
-          <div className="form-control my-5">
+          <div className="form-control my-5 ml-5">
             <label className="input-group">
               <span>Email</span>
               <input
-                className="input input-bordered"
+                className="input input-bordered w-[15.9rem]"
                 type="email"
-                placeholder="Email"
                 id="email"
                 value={email}
                 onChange={onChange}
@@ -96,7 +94,7 @@ function SignUp() {
             </label>
           </div>
 
-          <div className="form-control">
+          <div className="form-control ml-5">
             <label className="input-group">
               <span>Password</span>
               <input
@@ -105,13 +103,12 @@ function SignUp() {
                 id="password"
                 value={password}
                 onChange={onChange}
-                placeholder="Password"
                 required
               />
             </label>
           </div>
           <p
-            className="cursor-pointer"
+            className="cursor-pointer text-center mt-5"
             onClick={() => setShowPassword((prevState) => !prevState)}
           >
             Show Password

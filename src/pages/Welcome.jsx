@@ -66,6 +66,8 @@ function Welcome({ gender, setGender, setCategory, category }) {
     <div className="background relative">
       <div
         className="hero min-h-screen"
+        role="img"
+        aria-label="Welcome image displaying dressing room with clothing."
         style={{
           backgroundImage: `url(${WelcomePicture})`,
         }}
@@ -73,7 +75,7 @@ function Welcome({ gender, setGender, setCategory, category }) {
         <div className="hero-overlay bg-opacity-60"></div>
         <div className="hero-content text-center text-neutral-content">
           <div className="max-w-3xl bg-zinc-500/[.6] rounded-md shadow-xl w-full h-[300px] lg:p-5">
-            <h1 className="my-5 text-5xl font-bold whitespace-nowrap mb-10 welcome-text uppercase text-[30px] lg:text-5xl">
+            <h1 className="my-10 text-5xl font-bold whitespace-nowrap mb-10 welcome-text uppercase text-[30px] lg:text-5xl">
               All styles, all tops
             </h1>
             <div className="lg:flex">
