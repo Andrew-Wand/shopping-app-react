@@ -64,7 +64,36 @@ function Welcome({ gender, setGender, setCategory, category }) {
 
   return (
     <div className="background relative">
-      <header>
+      <div
+        className="hero min-h-screen"
+        style={{
+          backgroundImage: `url(${WelcomePicture})`,
+        }}
+      >
+        <div className="hero-overlay bg-opacity-60"></div>
+        <div className="hero-content text-center text-neutral-content">
+          <div className="max-w-3xl bg-zinc-500/[.6] rounded-md shadow-xl w-full h-[300px] lg:p-5">
+            <h1 className="my-5 text-5xl font-bold whitespace-nowrap mb-10 welcome-text uppercase text-[30px] lg:text-5xl">
+              All styles, all tops
+            </h1>
+            <div className="lg:flex">
+              <button
+                className="btn btn-lg btn-secondary lg:btn-primary mb-5 w-[20rem] lg:mr-20 rounded-md"
+                onClick={() => handleSelectGender("men")}
+              >
+                Shop Men
+              </button>
+              <button
+                className="btn btn-lg btn-secondary lg:btn-primary w-[20rem] rounded-md"
+                onClick={() => handleSelectGender("women")}
+              >
+                Shop Women
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* <header>
         <figure>
           <img
             src={WelcomePicture}
@@ -90,7 +119,7 @@ function Welcome({ gender, setGender, setCategory, category }) {
             Shop Women
           </button>
         </div>
-      </header>
+      </header> */}
 
       {/* FEATURED SECTION */}
       <section>
