@@ -57,7 +57,7 @@ function SignIn() {
             <label className="input-group">
               <span>Email</span>
               <input
-                className="input input-bordered w-[69.5%] lg:w-full lg:mr-7"
+                className="input input-bordered w-full mr-5 lg:w-full lg:mr-7"
                 type="email"
                 id="email"
                 value={email}
@@ -71,7 +71,7 @@ function SignIn() {
               <span>Password</span>
               <input
                 type="password"
-                className="input input-bordered lg:w-[60%]"
+                className="input input-bordered lg:w-[60%] w-full mr-5 lg:mr-0"
                 id="password"
                 value={password}
                 onChange={onChange}
@@ -80,16 +80,16 @@ function SignIn() {
             </label>
           </div>
 
-          <div className="flex flex-col max-w-[50%] ">
+          <div className="flex flex-col">
             <Link to="/forgot-password" className="btn my-5">
               Forgot Password
             </Link>
             <button className="btn">Sign In</button>
+            <div className=" lg:relative lg:top-0 lg:right-0 lg:my-5 mt-5">
+              <OAuth />
+            </div>
           </div>
 
-          <div className="absolute top-[38%] right-[6%] lg:relative lg:top-0 lg:right-0 lg:my-5">
-            <OAuth />
-          </div>
           <Link to="/sign-up" className="btn btn-outline btn-info  my-10">
             Sign Up Instead
           </Link>
