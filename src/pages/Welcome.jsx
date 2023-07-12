@@ -10,18 +10,10 @@ import InfoPic1 from "../assets/other/info-pic-1.webp";
 import InfoPic2 from "../assets/other/info-pic-2.webp";
 import InfoPic3 from "../assets/other/info-pic-3.webp";
 import { IoShirtSharp } from "react-icons/io5";
-import "aos/dist/aos.css";
-import AOS from "aos";
 
 function Welcome({ gender, setGender, setCategory, category }) {
   const navigate = useNavigate();
   const [featured, setFeatured] = useState(null);
-
-  // Initialize animation on scroll
-
-  useEffect(() => {
-    AOS.init();
-  }, []);
 
   const handleSelectGender = (selection) => {
     if (selection === "men") {
@@ -203,13 +195,7 @@ function Welcome({ gender, setGender, setCategory, category }) {
       <section className="text-center lg:p-10 lg:bg-base-200 bg-base-200">
         <h1 className="text-3xl m-12 uppercase font-bold">Who we are</h1>
         <div className="lg:flex lg:justify-between lg:mt-32">
-          <div
-            data-aos="fade"
-            data-aos-once="true"
-            data-aos-anchor-placement="top-center"
-            data-aos-delay="50"
-            data-aos-duration="1500"
-          >
+          <div>
             <div>
               <div className="avatar">
                 <div className="rounded-full h-[15rem] w-[15rem]">
@@ -232,14 +218,7 @@ function Welcome({ gender, setGender, setCategory, category }) {
               </p>
             </div>
           </div>
-          <div
-            className="mt-16   lg:mt-0"
-            data-aos="fade"
-            data-aos-once="true"
-            data-aos-anchor-placement="top-center"
-            data-aos-delay="100"
-            data-aos-duration="1500"
-          >
+          <div className="mt-16   lg:mt-0">
             <div className="h-[35rem]">
               <div className="avatar mt-10 lg:mt-0">
                 <div className="rounded-full h-[15rem] w-[15rem]">
@@ -262,14 +241,7 @@ function Welcome({ gender, setGender, setCategory, category }) {
               </p>
             </div>
           </div>
-          <div
-            className="mt-8 lg:mt-0"
-            data-aos="fade"
-            data-aos-once="true"
-            data-aos-anchor-placement="top-center"
-            data-aos-delay="150"
-            data-aos-duration="1500"
-          >
+          <div className="mt-8 lg:mt-0">
             <div className="h-[35rem]">
               <div className="avatar mt-10 lg:mt-0">
                 <div className="rounded-full h-auto w-[15rem]">
