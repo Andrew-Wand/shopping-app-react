@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { getDoc, doc, setDoc, updateDoc, increment } from "firebase/firestore";
+import { getDoc, doc, setDoc, updateDoc } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 import { db } from "../firebase.config";
 import Loading from "../components/Loading";
@@ -17,7 +17,6 @@ function SingleItem() {
 
   const navigate = useNavigate();
   const params = useParams();
-  const auth = getAuth();
 
   useEffect(() => {
     const fetchSingleItem = async () => {
@@ -31,11 +30,6 @@ function SingleItem() {
 
     fetchSingleItem();
   }, [navigate, params.listingId]);
-
-  // Add to cart alert
-  // const cartAddAlert = () => {
-
-  // };
 
   // Adding items to cart
   const handleAddToCart = async () => {

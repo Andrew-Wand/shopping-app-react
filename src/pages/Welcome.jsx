@@ -1,6 +1,6 @@
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { collection, getDocs, query, limit, where } from "firebase/firestore";
+import { collection, getDocs, query, limit } from "firebase/firestore";
 import WelcomePicture from "../assets/other/welcome-pic.webp";
 import { db } from "../firebase.config";
 import FeaturedCard from "../components/FeaturedCard";
@@ -11,7 +11,7 @@ import InfoPic2 from "../assets/other/info-pic-2.webp";
 import InfoPic3 from "../assets/other/info-pic-3.webp";
 import { IoShirtSharp } from "react-icons/io5";
 
-function Welcome({ gender, setGender, setCategory, category }) {
+function Welcome({ setGender }) {
   const navigate = useNavigate();
   const [featured, setFeatured] = useState(null);
 
@@ -87,33 +87,6 @@ function Welcome({ gender, setGender, setCategory, category }) {
           </div>
         </div>
       </div>
-      {/* <header>
-        <figure>
-          <img
-            src={WelcomePicture}
-            alt="Store Picture"
-            className="h-[35rem] w-full brightness-[64.5%] welcome-img lg:w-full lg:h-[80rem]"
-          />
-        </figure>
-
-        <div className="absolute top-[3%] left-[2%] lg:top-[7%] lg:left-[30%] text-center bg-zinc-500/[.6] rounded-md shadow-xl lg:px-10 lg:py-5 py-5 mr-[2%] lg:mr-0">
-          <p className="text-[30px] text-base-100 text-center uppercase font-extrabold welcome-text whitespace-nowrap lg:text-5xl mb-10">
-            All styles, all tops
-          </p>
-          <button
-            className="btn btn-lg btn-secondary lg:btn-primary mb-5 w-[20rem] lg:mr-20 rounded-md"
-            onClick={() => handleSelectGender("men")}
-          >
-            Shop Men
-          </button>
-          <button
-            className="btn btn-lg btn-secondary lg:btn-primary w-[20rem] rounded-md"
-            onClick={() => handleSelectGender("women")}
-          >
-            Shop Women
-          </button>
-        </div>
-      </header> */}
 
       {/* FEATURED SECTION */}
       <section>

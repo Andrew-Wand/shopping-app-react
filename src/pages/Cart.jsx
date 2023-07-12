@@ -1,14 +1,7 @@
 import { useState, useEffect } from "react";
-import {
-  collection,
-  query,
-  getDocs,
-  limit,
-  deleteDoc,
-  doc,
-} from "firebase/firestore";
+import { collection, query, getDocs } from "firebase/firestore";
 import { db } from "../firebase.config";
-import { useNavigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Loading from "../components/Loading";
 import CartItem from "../components/CartItem";
 import { IoCartSharp } from "react-icons/io5";
@@ -16,8 +9,6 @@ import { IoCartSharp } from "react-icons/io5";
 function Cart() {
   const [cartItems, setCartItems] = useState(null);
   const [loading, setLoading] = useState(true);
-
-  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchCartItems = async () => {

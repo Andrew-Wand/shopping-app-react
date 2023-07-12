@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-function DesktopNavMenu({ gender, setGender, category, setCategory }) {
+function DesktopNavMenu({ setGender, setCategory }) {
   const handleMensCategory = (selection) => {
     if (selection === "tshirt") {
       setGender("men");

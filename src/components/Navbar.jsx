@@ -1,16 +1,14 @@
 import { Link, useNavigate } from "react-router-dom";
 import { getAuth } from "firebase/auth";
 import { useState, useEffect } from "react";
-import { collection, query, getDocs, limit } from "firebase/firestore";
+import { collection, query, getDocs } from "firebase/firestore";
 import { db } from "../firebase.config";
-import Loading from "./Loading";
 import { BsFillBagFill } from "react-icons/bs";
 import { FiHeart, FiUser } from "react-icons/fi";
 import MobileNavMenu from "./MobileNavMenu";
 import DesktopNavMenu from "./DesktopNavMenu";
-import ShopNav from "./ShopNav";
 
-function Navbar({ gender, setGender, category, setCategory, scrollPosition }) {
+function Navbar({ gender, setGender, category, setCategory }) {
   const navigate = useNavigate();
   const auth = getAuth();
 
@@ -59,20 +57,6 @@ function Navbar({ gender, setGender, category, setCategory, scrollPosition }) {
       document.querySelector("body").classList.remove("disable-scroll");
     }
   };
-
-  // Calculate total price of items in cart
-  const data = cartItems;
-  const calcTotalPrice = data?.reduce(
-    (a, v) => (a = a + v.data.price * v.data.quantity),
-    0
-  );
-
-  // Get cart quantity
-  const cartQuantities = cartItems?.map((item) => item.data.quantity);
-  const cartTotal = cartQuantities?.reduce(
-    (accumulator, currentValue) => accumulator + currentValue,
-    0
-  );
 
   return (
     <>

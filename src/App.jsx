@@ -13,9 +13,7 @@ import Footer from "./components/Footer";
 import Checkout from "./pages/Checkout";
 import Subscribe from "./pages/Subscribe";
 import "animate.css";
-import useScrollPosition from "./hooks/useScrollPosition";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Link } from "react-router-dom";
 import { useState } from "react";
 
 function App() {

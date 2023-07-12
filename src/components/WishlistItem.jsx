@@ -1,6 +1,5 @@
 import { doc, deleteDoc } from "firebase/firestore";
 import { db } from "../firebase.config";
-import { useState } from "react";
 import { IoTrashOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
 

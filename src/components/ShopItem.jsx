@@ -5,16 +5,7 @@ import { getDoc, doc, setDoc, deleteDoc } from "firebase/firestore";
 import { db } from "../firebase.config";
 import { getAuth } from "firebase/auth";
 
-function ShopItem({
-  listing,
-  id,
-  category,
-  setCategory,
-  gender,
-  e,
-  targetId,
-  handleAddToCart,
-}) {
+function ShopItem({ e, targetId }) {
   const auth = getAuth();
 
   const [inWishlist, setInWishlist] = useState(false);
@@ -93,7 +84,6 @@ function ShopItem({
           <Link className="text-xl py-2" to={`/shop/${e.category}/${targetId}`}>
             {e.name}
           </Link>
-          {/* <p className="text-xl py-2">{e.name}</p> */}
           <p className="text-xl py-2">${e.price}</p>
         </div>
 

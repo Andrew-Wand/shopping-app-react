@@ -1,14 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import {
-  collection,
-  getDocs,
-  query,
-  limit,
-  setDoc,
-  doc,
-  addDoc,
-} from "firebase/firestore";
+import { collection, getDocs, query } from "firebase/firestore";
 import Loading from "../components/Loading";
 import WishlistItem from "../components/WishlistItem";
 import { IoHeartSharp } from "react-icons/io5";

@@ -1,13 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
-function MobileNavMenu({
-  gender,
-  setGender,
-  setCategory,
-  category,
-  setDrawerActive,
-}) {
+function MobileNavMenu({ gender, setGender, setCategory, setDrawerActive }) {
   useEffect(() => {
     if (gender === "men") {
       document.querySelector(".men").classList.add("tab-active");
@@ -78,16 +72,6 @@ function MobileNavMenu({
       </header>
 
       <main>
-        {/* <div className="tabs tabs-boxed">
-          <a className="tab tab-active category-btn tshirt">
-            {gender === "men" ? "T-Shirts" : "T-Shirts & Tops"}
-          </a>
-          <a className="tab category-btn">
-            {gender === "men" ? "Dress Shirts" : "Dresses"}
-          </a>
-          <a className="tab category-btn">Sweaters</a>
-          <a className="tab category-btn">Jackets</a>
-        </div> */}
         <nav>
           <ul className="menu">
             <li>

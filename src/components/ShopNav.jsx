@@ -1,6 +1,6 @@
-import { useState, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 
-function ShopNav({ category, setCategory, gender, setGender }) {
+function ShopNav({ setCategory, gender, setGender }) {
   // Handle changing genders in the navbar
 
   useEffect(() => {

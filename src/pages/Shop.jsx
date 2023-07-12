@@ -1,29 +1,13 @@
 import { useEffect, useState } from "react";
-import {
-  collection,
-  getDocs,
-  query,
-  where,
-  orderBy,
-  limit,
-  startAfter,
-  setDoc,
-  doc,
-  addDoc,
-  deleteDoc,
-} from "firebase/firestore";
-import { getAuth } from "firebase/auth";
+import { collection, getDocs, query, setDoc, doc } from "firebase/firestore";
 import { db } from "../firebase.config";
-import ShopNav from "../components/ShopNav";
 import ShopItem from "../components/ShopItem";
 import Loading from "../components/Loading";
 import { IoShirtSharp } from "react-icons/io5";
 
-function Shop({ handleAddToCart, category, setCategory, gender, setGender }) {
+function Shop({ category, setCategory, gender }) {
   const [listings, setListings] = useState(null);
   const [loading, setLoading] = useState(true);
-
-  const auth = getAuth();
 
   useEffect(() => {
     const fetchListings = async () => {
